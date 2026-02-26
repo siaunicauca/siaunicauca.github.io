@@ -540,7 +540,7 @@ function DocumentSection() {
 
 // ─── ENLACE EXTERNO ─────────────────────────────────────────────────────────
 function ExternalLinkSection() {
-  const externalUrl = "https://hidrochallenge.com"; // Cambia al enlace real
+  const externalUrl = "https://hidrochallenge-ipn.org/"; 
 
   return (
     <section
@@ -679,9 +679,12 @@ function HeroSection() {
           HIDRO
           <span style={{ color: "#F5C518" }}>CHALLENGE</span>
         </h1>
+        <h2 style={{ color: "#F5C518", fontFamily: "'Playfair Display', serif", fontSize: "1.2rem", fontWeight: 700, margin: "0.5rem 0" }}>
+          UNIVERSIDAD DEL CAUCA
+        </h2>
         <p style={{ color: "#CCCCCC", fontSize: "1rem", lineHeight: 1.8, maxWidth: "600px", margin: "0 auto" }}>
-          Competencia internacional de cohetes hidropropulsados organizada por el Instituto Politécnico Nacional. 
-          El Semillero Ad Astra participa representando a la Universidad del Cauca.
+          Competencia internacional de cohetes hidropropulsados organizada por el Instituto Politécnico Nacional De México Y la Universidad del Cauca de Colombia. <br></br>
+          
         </p>
       </div>
     </div>

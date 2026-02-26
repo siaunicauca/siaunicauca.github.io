@@ -8,19 +8,24 @@ import { TeamPage } from "./pages/TeamPage";
 import { NewsPage } from "./pages/NewsPage";
 import { ContactPage } from "./pages/ContactPage";
 import { HidroChallengePage } from "./pages/HidroChallengePage";
-export const router = createBrowserRouter([
+export const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      Component: Layout,
+      children: [
+        { index: true, Component: HomePage },
+        { path: "investigacion", Component: ResearchPage },
+        { path: "publicaciones", Component: PublicationsPage },
+        { path: "proyectos", Component: ProjectsPage },
+        { path: "equipo", Component: TeamPage },
+        { path: "noticias", Component: NewsPage },
+        { path: "contacto", Component: ContactPage },
+        { path: "hidrochallenge", Component: HidroChallengePage },
+      ],
+    },
+  ],
   {
-    path: "/",
-    Component: Layout,
-    children: [
-      { index: true, Component: HomePage },
-      { path: "investigacion", Component: ResearchPage },
-      { path: "publicaciones", Component: PublicationsPage },
-      { path: "proyectos", Component: ProjectsPage },
-      { path: "equipo", Component: TeamPage },
-      { path: "noticias", Component: NewsPage },
-      { path: "contacto", Component: ContactPage },
-      { path: "hidrochallenge", Component: HidroChallengePage },
-    ],
-  },
-]);
+    basename: "/Web",
+  }
+);

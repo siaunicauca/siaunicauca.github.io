@@ -576,7 +576,7 @@ function ExternalLinkSection() {
               margin: "0 0 0.75rem",
             }}
           >
-            Página del <span style={{ color: "#F5C518" }}>HidroChallenge del lado IPN</span>
+            Página de <span style={{ color: "#F5C518" }}>HidroChallenge del lado IPN</span>
           </h3>
           <p
             style={{

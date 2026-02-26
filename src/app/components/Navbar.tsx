@@ -10,6 +10,7 @@ const navLinks = [
   { href: "/equipo", label: "Equipo" },
   { href: "/noticias", label: "Noticias" },
   { href: "/contacto", label: "Contacto" },
+  { href: "/hidrochallenge", label: "HidroChallenge" },
 ];
 
 export function Navbar() {

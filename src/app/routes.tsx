@@ -7,7 +7,7 @@ import { ProjectsPage } from "./pages/ProjectsPage";
 import { TeamPage } from "./pages/TeamPage";
 import { NewsPage } from "./pages/NewsPage";
 import { ContactPage } from "./pages/ContactPage";
-
+import { HidroChallengePage } from "./pages/HidroChallengePage";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -20,6 +20,7 @@ export const router = createBrowserRouter([
       { path: "equipo", Component: TeamPage },
       { path: "noticias", Component: NewsPage },
       { path: "contacto", Component: ContactPage },
+      { path: "hidrochallenge", Component: HidroChallengePage },
     ],
   },
 ]);

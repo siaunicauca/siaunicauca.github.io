@@ -150,11 +150,12 @@ function CountdownSection() {
 
 // ─── ROADMAP / FECHAS IMPORTANTES ───────────────────────────────────────────
 const roadmapEvents = [
-  { date: "1 Mar 2026", title: "Apertura de convocatoria", description: "Se abre la inscripción para equipos nacionales e internacionales.", icon: <CalendarDays size={18} /> },
-  { date: "30 Jun 2026", title: "Cierre de inscripciones", description: "Fecha límite para registrar tu equipo y enviar documentación.", icon: <FileText size={18} /> },
-  { date: "15 Ago 2026", title: "Revisión de diseño preliminar", description: "Los equipos presentan su diseño de cohete para evaluación técnica.", icon: <Rocket size={18} /> },
-  { date: "1 Oct 2026", title: "Entrega de informe final", description: "Documentación técnica completa y video del proceso de manufactura.", icon: <FileText size={18} /> },
-  { date: "14-16 Oct 2026", title: "Evento presencial — Lanzamientos", description: "Competencia de lanzamientos en el Instituto Politécnico Nacional, Ciudad de México.", icon: <MapPin size={18} /> },
+  { date: "15 mayo", title: "Etapa I", description: "1ª Entrega de Reporte Técnico (PDR) + Video", rubrica: "Rúbrica: R1", icon: <FileText size={18} /> },
+  { date: "19 junio", title: "Resultados", description: "Publicación de equipos seleccionados para realizar lanzamientos autorizados", rubrica: "Carta de aceptación", icon: <CalendarDays size={18} /> },
+  { date: "20 agosto", title: "Etapa II", description: "2ª Entrega de Reporte Técnico (CDR + Video)", rubrica: "Rúbrica: R1", icon: <FileText size={18} /> },
+  { date: "14-15 oct", title: "Etapa III", description: "Evaluación, Revisión y resguardos de Cohetes", rubrica: "N/A", icon: <Rocket size={18} /> },
+  { date: "15 octubre", title: "Etapa III", description: "Lanzamiento y Evaluación Presencial Hidropropulsados", rubrica: "Rúbricas: R5 y R6", icon: <MapPin size={18} /> },
+  { date: "16 octubre", title: "Etapa III", description: "Lanzamiento y Evaluación Presencial Combustible Sólido", rubrica: "Rúbricas: R5 y R6", icon: <MapPin size={18} /> },
 ];
 
 function RoadmapSection() {
@@ -266,9 +267,23 @@ function RoadmapSection() {
                   >
                     {ev.title}
                   </h3>
-                  <p style={{ color: "#AAAAAA", fontSize: "0.85rem", lineHeight: 1.6, margin: 0 }}>
+                  <p style={{ color: "#AAAAAA", fontSize: "0.85rem", lineHeight: 1.6, margin: "0 0 0.6rem" }}>
                     {ev.description}
                   </p>
+                  <span style={{
+                    display: "inline-block",
+                    background: "rgba(245,197,24,0.12)",
+                    color: "#F5C518",
+                    fontFamily: "'Space Grotesk', sans-serif",
+                    fontSize: "0.7rem",
+                    fontWeight: 600,
+                    letterSpacing: "0.05em",
+                    padding: "0.3rem 0.85rem",
+                    borderRadius: "20px",
+                    border: "1px solid rgba(245,197,24,0.2)",
+                  }}>
+                    {ev.rubrica}
+                  </span>
                 </div>
               </div>
             </FadeIn>
@@ -504,33 +519,68 @@ function DocumentSection() {
             >
               Descarga el documento completo con las bases, requisitos técnicos y categorías de competencia del HidroChallenge IPN 2026.
             </p>
-            <a
-              href={pdfUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                background: "#F5C518",
-                color: "#0A0A0A",
-                fontFamily: "'Space Grotesk', sans-serif",
-                fontSize: "0.8rem",
-                fontWeight: 700,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                textDecoration: "none",
-                padding: "0.75rem 2rem",
-                border: "none",
-                cursor: "pointer",
-                transition: "background 0.3s",
-              }}
-              onMouseEnter={(e) => ((e.target as HTMLElement).style.background = "#E8A800")}
-              onMouseLeave={(e) => ((e.target as HTMLElement).style.background = "#F5C518")}
-            >
-              <Download size={16} />
-              Descargar PDF
-            </a>
+            <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
+              <a
+                href={pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  background: "#F5C518",
+                  color: "#0A0A0A",
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontSize: "0.8rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  textDecoration: "none",
+                  padding: "0.75rem 2rem",
+                  border: "none",
+                  cursor: "pointer",
+                  transition: "background 0.3s",
+                }}
+                onMouseEnter={(e) => ((e.target as HTMLElement).style.background = "#E8A800")}
+                onMouseLeave={(e) => ((e.target as HTMLElement).style.background = "#F5C518")}
+              >
+                <Download size={16} />
+                Descargar PDF
+              </a>
+              <a
+                href="https://urlforms"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  background: "transparent",
+                  color: "#F5C518",
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontSize: "0.8rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  textDecoration: "none",
+                  padding: "0.75rem 2rem",
+                  border: "2px solid #F5C518",
+                  cursor: "pointer",
+                  transition: "all 0.3s",
+                }}
+                onMouseEnter={(e) => {
+                  (e.target as HTMLElement).style.background = "#F5C518";
+                  (e.target as HTMLElement).style.color = "#0A0A0A";
+                }}
+                onMouseLeave={(e) => {
+                  (e.target as HTMLElement).style.background = "transparent";
+                  (e.target as HTMLElement).style.color = "#F5C518";
+                }}
+              >
+                <ExternalLink size={16} />
+                Ir al Formulario
+              </a>
+            </div>
           </div>
         </FadeIn>
       </div>

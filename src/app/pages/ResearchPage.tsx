@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from "react";
-import { Wind, Atom, Satellite, Layers, Cpu, Zap, Globe, Shield } from "lucide-react";
+import { Wind, Satellite, Layers, Cpu } from "lucide-react";
 import { StarField } from "../components/StarField";
 import { SectionHeader } from "../components/SectionHeader";
 
@@ -31,69 +31,47 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 const researchAreas = [
   {
     icon: <Wind size={36} />,
-    title: "Aerodinámica Computacional",
-    subtitle: "CFD & Análisis Numérico",
+    title: "Diseño, Construcción y Simulación de Sistemas Aeroespaciales",
+    subtitle: "Diseño & Simulación",
     fig: "Fig. 1a",
     description:
-      "Desarrollo y aplicación de métodos numéricos avanzados para la simulación de flujos aerodinámicos complejos. Utilizamos herramientas como OpenFOAM, ANSYS Fluent y códigos propios para estudiar fenómenos de capa límite, separación de flujo y control activo.",
-    topics: ["Métodos de elementos finitos", "Lattice Boltzmann", "DNS/LES de turbulencia", "Optimización de forma", "Validación experimental"],
+      "Desarrollo integral de sistemas aeroespaciales desde el diseño conceptual hasta la construcción de prototipos y validación mediante simulaciones computacionales avanzadas.",
+    topics: ["Diseño de cohetes", "Simulación CFD", "Prototipado", "Nanosatélites", "Análisis estructural"],
     color: "#F5C518",
-    annotation: "Coef. de arrastre Cd = 0.0312",
-  },
-  {
-    icon: <Atom size={36} />,
-    title: "Propulsión Aeroespacial",
-    subtitle: "Cohetes & Turbinas",
-    fig: "Fig. 1b",
-    description:
-      "Investigación en sistemas de propulsión desde motores cohete a combustible sólido/líquido hasta ciclos termodinámicos para turbinas de gas. Incluye el diseño de toberas, cámaras de combustión y análisis de rendimiento propulsivo.",
-    topics: ["Motores cohete sólidos", "Propulsión híbrida", "Diseño de toberas", "Ciclos Brayton", "Micro-propulsores"],
-    color: "#E8A800",
-    annotation: "Isp objetivo: 280 s",
-  },
-  {
-    icon: <Satellite size={36} />,
-    title: "Mecánica Orbital",
-    subtitle: "Trayectorias & CubeSats",
-    fig: "Fig. 1c",
-    description:
-      "Cálculo y optimización de trayectorias espaciales, diseño de maniobras de transferencia y análisis de perturbaciones orbitales. Trabajamos en el diseño conceptual de constelaciones de pequeños satélites para observación terrestre.",
-    topics: ["Problema de N-cuerpos", "Maniobras de Hohmann", "Perturbaciones J2", "CubeSat design", "ADCS básico"],
-    color: "#F5C518",
-    annotation: "Período orbital: 94.2 min",
-  },
-  {
-    icon: <Layers size={36} />,
-    title: "Materiales Aeroespaciales",
-    subtitle: "Compuestos & Estructuras",
-    fig: "Fig. 1d",
-    description:
-      "Caracterización mecánica y térmica de materiales compuestos de fibra de carbono, análisis de fatiga estructural y desarrollo de procesos de manufactura para entornos de alta exigencia.",
-    topics: ["CFRP y GFRP", "Análisis de laminados", "Tolerancia al daño", "Ensayos de fatiga", "Manufactura aditiva"],
-    color: "#E8A800",
-    annotation: "E₁ = 140 GPa (T300)",
+    annotation: "Diseño · Construcción · Simulación",
   },
   {
     icon: <Cpu size={36} />,
-    title: "Sistemas de Control y GNC",
-    subtitle: "Guía, Navegación & Control",
-    fig: "Fig. 1e",
+    title: "Inteligencia Artificial y Sistemas Dinámicos en Aeroespacial",
+    subtitle: "IA & Sistemas Dinámicos",
+    fig: "Fig. 1b",
     description:
-      "Diseño de sistemas de guía, navegación y control para vehículos aéreos no tripulados y cohetes de sondeo. Implementación de controladores PID, LQR y algoritmos de estimación de estados.",
-    topics: ["Filtro de Kalman", "Control LQR/LQG", "AHRS y sensores IMU", "Autopilot systems", "Hardware-in-the-loop"],
-    color: "#F5C518",
-    annotation: "σ_nav < 0.5°",
+      "Aplicación de técnicas de inteligencia artificial y modelado de sistemas dinámicos para la resolución de problemas complejos en el ámbito aeroespacial.",
+    topics: ["Machine Learning", "Redes neuronales", "Modelado dinámico", "Optimización", "Procesamiento de datos"],
+    color: "#E8A800",
+    annotation: "IA · Modelado · Optimización",
   },
   {
-    icon: <Globe size={36} />,
-    title: "Percepción Remota",
-    subtitle: "Satélites & Procesamiento",
-    fig: "Fig. 1f",
+    icon: <Satellite size={36} />,
+    title: "Automatización y Control de Procesos Aeroespaciales",
+    subtitle: "Control & Automatización",
+    fig: "Fig. 1c",
     description:
-      "Procesamiento y análisis de imágenes satelitales para aplicaciones de monitoreo ambiental, agricultura de precisión y gestión de desastres. Utilizamos técnicas de machine learning para clasificación automática.",
-    topics: ["Imágenes multiespectrales", "SAR processing", "Clasificación ML", "Fusión de datos", "GIS espacial"],
+      "Diseño e implementación de sistemas de control y automatización para procesos y vehículos en el ámbito aeroespacial, incluyendo guía, navegación y control.",
+    topics: ["Control PID/LQR", "Sistemas autónomos", "GNC", "Hardware-in-the-loop", "Rovers autónomos"],
+    color: "#F5C518",
+    annotation: "Control · GNC · Automatización",
+  },
+  {
+    icon: <Layers size={36} />,
+    title: "Instrumentación y Sensores para el Sector Aeroespacial",
+    subtitle: "Sensores & Instrumentación",
+    fig: "Fig. 1d",
+    description:
+      "Desarrollo y aplicación de instrumentación y sensores especializados para la adquisición de datos en entornos aeroespaciales exigentes.",
+    topics: ["Sensores IMU", "Telemetría", "Adquisición de datos", "Sistemas embebidos", "Calibración"],
     color: "#E8A800",
-    annotation: "Resolución: 3m/px",
+    annotation: "Sensores · Telemetría · Datos",
   },
 ];
 
@@ -189,8 +167,8 @@ export function ResearchPage() {
             <span style={{ color: "#F5C518" }}> INVESTIGACIÓN</span>
           </h1>
           <p style={{ color: "#CCCCCC", fontSize: "1rem", lineHeight: 1.8, maxWidth: "600px", margin: "0 auto" }}>
-            Seis áreas de especialización que definen el horizonte científico del Semillero AD ASTRA. 
-            Cada línea combina rigor teórico con experimentación y aplicaciones reales.
+            Cuatro áreas de especialización que definen el horizonte científico del Semillero AD ASTRA, 
+            alineadas con las líneas de investigación del Grupo SIDICO.
           </p>
         </div>
       </div>

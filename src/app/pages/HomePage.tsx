@@ -172,9 +172,10 @@ function HeroSection() {
               marginBottom: "2.5rem",
             }}
           >
-            Un grupo de investigadores apasionados explorando los límites de la 
-            aerodinámica, la propulsión y la mecánica orbital. Desde el campus 
-            hacia el cosmos.
+              Adscrito al grupo de investigación en Sistemas Dinámicos, 
+              Instrumentación y Control - SIDICO, del departamento de 
+              física, Facultad de Ciencias Naturales, Exactas y de la 
+              Educación, Universidad Del Cauca.
           </p>
 
           <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
@@ -436,15 +437,17 @@ function AboutSection() {
                 Construyendo el futuro del espacio desde la academia
               </h2>
               <p style={{ color: "#CCCCCC", lineHeight: 1.85, fontSize: "0.95rem", marginBottom: "1.2rem" }}>
-                El Semillero AD ASTRA es una comunidad multidisciplinar de estudiantes e 
-                investigadores comprometidos con el avance de la ingeniería aeroespacial 
-                en Colombia y Latinoamérica.
+
+                Nuestra mision Es Formar un espacio interdisciplinario que vincule estudiantes de diversas
+                áreas del conocimiento en torno a la investigación y el desarrollo de tecnologías aeroespaciales. 
+   
+
               </p>
               <p style={{ color: "#888", lineHeight: 1.85, fontSize: "0.9rem" }}>
-                Desde el diseño de drones de ala fija hasta la simulación de trayectorias 
-                orbitales, nuestro trabajo combina rigor científico con la pasión por 
-                explorar lo desconocido. Nuestra metodología se inspira en los grandes 
-                pioneros de la aviación y la astronáutica.
+                Promover proyectos que respondan a los desafíos actuales del sector 
+                aeroespacial alineados con las líneas de investigación del Grupo SIDICO, fortaleciendo
+                la interacción entre la Universidad, la industria y la comunidad para generar impacto
+                científico, tecnológico y social.
               </p>
               <div
                 style={{
@@ -548,31 +551,31 @@ function AboutSection() {
 const researchLines = [
   {
     icon: <Wind size={28} />,
-    title: "Aerodinámica Computacional",
-    desc: "Simulaciones CFD de flujos viscosos, análisis de perfiles alar y optimización aerodinámica mediante métodos numéricos avanzados.",
+    title: "Diseño, Construcción y Simulación de Sistemas Aeroespaciales",
+    desc: "Desarrollo integral de sistemas aeroespaciales desde el diseño conceptual hasta la construcción y validación mediante simulaciones computacionales.",
     fig: "Fig. 4a",
-    tag: "CFD · FEA",
+    tag: "Diseño · Simulación",
   },
   {
-    icon: <Atom size={28} />,
-    title: "Propulsión Aeroespacial",
-    desc: "Diseño y caracterización de motores cohete, ciclos termodinámicos y sistemas de propulsión híbrida para pequeños satélites.",
+    icon: <Cpu size={28} />,
+    title: "Inteligencia Artificial y Sistemas Dinámicos en Aeroespacial",
+    desc: "Aplicación de técnicas de inteligencia artificial y modelado de sistemas dinámicos para la resolución de problemas en el sector aeroespacial.",
     fig: "Fig. 4b",
-    tag: "Cohetes · Turbinas",
+    tag: "IA · Sistemas Dinámicos",
   },
   {
     icon: <Satellite size={28} />,
-    title: "Mecánica Orbital",
-    desc: "Cálculo de trayectorias, maniobras de transferencia orbital, diseño de constelaciones de satélites y análisis de perturbaciones.",
+    title: "Automatización y Control de Procesos Aeroespaciales",
+    desc: "Diseño e implementación de sistemas de control y automatización para procesos y vehículos en el ámbito aeroespacial.",
     fig: "Fig. 4c",
-    tag: "Órbitas · CubeSats",
+    tag: "Control · Automatización",
   },
   {
     icon: <Layers size={28} />,
-    title: "Materiales Aeroespaciales",
-    desc: "Desarrollo y caracterización de materiales compuestos, análisis de fatiga estructural y manufactura para entornos extremos.",
+    title: "Instrumentación y Sensores para el Sector Aeroespacial",
+    desc: "Desarrollo y aplicación de instrumentación y sensores especializados para la adquisición de datos en entornos aeroespaciales.",
     fig: "Fig. 4d",
-    tag: "CFRP · Titanio",
+    tag: "Sensores · Instrumentación",
   },
 ];
 

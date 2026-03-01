@@ -71,7 +71,7 @@ export function Navbar() {
                 lineHeight: 1.1,
               }}
             >
-              AD ASTRA
+              SIA
             </div>
             <div
               style={{
@@ -83,7 +83,7 @@ export function Navbar() {
                 lineHeight: 1,
               }}
             >
-              Semillero Aeroespacial
+              Semillero de Ingeniería Aeroespacial
             </div>
           </div>
         </Link>

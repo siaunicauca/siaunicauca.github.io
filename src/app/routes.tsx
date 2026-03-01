@@ -24,8 +24,5 @@ export const router = createBrowserRouter(
         { path: "hidrochallenge", Component: HidroChallengePage },
       ],
     },
-  ],
-  {
-    basename: "/Web",
-  }
+  ]
 );

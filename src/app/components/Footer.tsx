@@ -199,7 +199,7 @@ export function Footer() {
             ))}
           </div>
           <p style={{ color: "#666", fontSize: "0.8rem", lineHeight: 1.6 }}>
-            semillero.aerospacial@universidad.edu.co
+            siaaerospace@universidad.edu.co
           </p>
           <p style={{ color: "#555", fontSize: "0.75rem", marginTop: "0.4rem" }}>
             Edificio de Ingeniería, Sala 204

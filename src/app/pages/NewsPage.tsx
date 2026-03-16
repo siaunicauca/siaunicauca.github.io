@@ -1,6 +1,9 @@
 import { useRef, useEffect, useState } from "react";
-import { ArrowRight, Calendar, Tag } from "lucide-react";
+import { Link } from "react-router";
+import { ArrowRight, Calendar } from "lucide-react";
 import { StarField } from "../components/StarField";
+
+import coverImg from "../../media/Bienvenida/welcom1.jpeg";
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -27,97 +30,59 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   );
 }
 
-type Category = "Todos" | "Conferencia" | "Laboratorio" | "Simulación" | "Premio" | "Publicación";
+type Category = "Todos" | "Evento" | "Conferencia" | "Laboratorio" | "Simulación" | "Premio" | "Publicación";
 
-const news = [
+interface NewsItem {
+  id: number;
+  image: string;
+  category: Exclude<Category, "Todos">;
+  title: string;
+  excerpt: string;
+  date: string;
+  author: string;
+  featured: boolean;
+  readTime: string;
+  slug: string;
+}
+
+const news: NewsItem[] = [
   {
     id: 1,
-    image: "https://images.unsplash.com/photo-1704177094034-46a04b901bed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZXJvc3BhY2UlMjBlbmdpbmVlcmluZyUyMGNvbmZlcmVuY2UlMjBzdHVkZW50cyUyMHJlc2VhcmNofGVufDF8fHx8MTc3MTYyODY1Mnww&ixlib=rb-4.1.0&q=80&w=1080",
-    category: "Conferencia" as Category,
-    title: "AD ASTRA presenta en el Congreso Colombiano de Ingeniería Aeronáutica",
-    excerpt: "Nuestros investigadores expusieron avances en aerodinámica computacional ante más de 300 especialistas del sector aeroespacial latinoamericano. Se presentaron dos ponencias sobre CFD y mecánica orbital.",
-    date: "15 Enero, 2025",
-    author: "García, L.",
+    image: coverImg,
+    category: "Evento",
+    title: "Semillero de Ingeniería Aeroespacial SIA es presentado oficialmente ante la comunidad académica de la Universidad del Cauca",
+    excerpt:
+      "El 5 de diciembre de 2025 se llevó a cabo la presentación oficial del Semillero de Ingeniería Aeroespacial SIA ante la comunidad académica de la Universidad del Cauca, en un evento realizado en el auditorio principal de la Facultad de Ciencias Naturales, Exactas y de la Educación (FACNED), marcando un hito tras obtener su reconocimiento oficial por parte de la Vicerrectoría de Investigaciones (VRI).",
+    date: "5 Diciembre, 2025",
+    author: "Semillero SIA",
     featured: true,
-    readTime: "5 min",
-  },
-  {
-    id: 2,
-    image: "https://images.unsplash.com/photo-1764675903774-336e6ef8d09c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3aW5kJTIwdHVubmVsJTIwYWVyb2R5bmFtaWNzJTIwdGVzdCUyMGFlcm9zcGFjZXxlbnwxfHx8fDE3NzE2Mjg2NDl8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    category: "Laboratorio" as Category,
-    title: "Nuevo túnel de viento subsónico operativo en el campus",
-    excerpt: "La nueva instalación experimental del Laboratorio de Aerodinámica permite ensayos a Reynolds hasta 500,000, fortaleciendo considerablemente la capacidad experimental del semillero.",
-    date: "12 Diciembre, 2024",
-    author: "Pérez, A.",
-    featured: false,
-    readTime: "4 min",
-  },
-  {
-    id: 3,
-    image: "https://images.unsplash.com/photo-1756751579863-49b26247e1fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxDRkQlMjBjb21wdXRhdGlvbmFsJTIwZmx1aWQlMjBkeW5hbWljcyUyMHNpbXVsYXRpb24lMjB2aXN1YWxpemF0aW9ufGVufDF8fHx8MTc3MTYyODY1MHww&ixlib=rb-4.1.0&q=80&w=1080",
-    category: "Simulación" as Category,
-    title: "Resultados de simulación CFD del flujo sobre NACA 4412 publicados",
-    excerpt: "Los resultados preliminares de la campaña de simulación CFD muestran excelente correlación con datos experimentales, validando la metodología numérica de alto orden implementada.",
-    date: "28 Noviembre, 2024",
-    author: "García, L.",
-    featured: false,
     readTime: "6 min",
-  },
-  {
-    id: 4,
-    image: "https://images.unsplash.com/photo-1707328196182-94771ce34207?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9wdWxzaW9uJTIwamV0JTIwZW5naW5lJTIwYWVyb3NwYWNlJTIwcmVzZWFyY2h8ZW58MXx8fHwxNzcxNjI4NjU3fDA&ixlib=rb-4.1.0&q=80&w=1080",
-    category: "Premio" as Category,
-    title: "Investigadora del semillero gana Premio AIAA Young Engineer 2024",
-    excerpt: "La MSc. Andrea Pérez fue reconocida con el Premio AIAA Young Engineer 2024 por sus contribuciones al diseño de constelaciones de satélites pequeños para observación terrestre.",
-    date: "10 Noviembre, 2024",
-    author: "Dirección",
-    featured: true,
-    readTime: "3 min",
-  },
-  {
-    id: 5,
-    image: "https://images.unsplash.com/photo-1770370419338-f9a813302baa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzYXRlbGxpdGUlMjBzcGFjZWNyYWZ0JTIwb3JiaXQlMjBlYXJ0aHxlbnwxfHx8fDE3NzE2Mjg2NTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-    category: "Publicación" as Category,
-    title: "Paper sobre optimización aerodinámica aceptado en Aerospace S&T",
-    excerpt: "El artículo 'Multi-Fidelity Aerodynamic Shape Optimization Using Surrogate Models' fue aceptado para publicación en la revista Aerospace Science and Technology, Vol. 145.",
-    date: "3 Octubre, 2024",
-    author: "Pérez, A.",
-    featured: false,
-    readTime: "4 min",
-  },
-  {
-    id: 6,
-    image: "https://images.unsplash.com/photo-1769986515211-40bca134a0fe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkcm9uZSUyMFVBViUyMGZsaWdodCUyMHRlc3QlMjBvdXRkb29yfGVufDF8fHx8MTc3MTYyODY1N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-    category: "Laboratorio" as Category,
-    title: "Primera prueba de vuelo del UAV AeroOpt completada exitosamente",
-    excerpt: "El prototipo del UAV optimizado aerodinámicamente completó su primera prueba de vuelo en el campus universitario, obteniendo datos cruciales para la validación del modelo computacional.",
-    date: "22 Septiembre, 2024",
-    author: "Martínez, C.",
-    featured: false,
-    readTime: "5 min",
+    slug: "presentacion-oficial-sia-2025",
   },
 ];
 
 const categoryColors: Record<Category, { bg: string; text: string; border: string }> = {
-  "Todos": { bg: "rgba(245,197,24,0.1)", text: "#F5C518", border: "rgba(245,197,24,0.3)" },
-  "Conferencia": { bg: "rgba(100,180,255,0.1)", text: "#64b4ff", border: "rgba(100,180,255,0.3)" },
-  "Laboratorio": { bg: "rgba(34,197,94,0.1)", text: "#22c55e", border: "rgba(34,197,94,0.3)" },
-  "Simulación": { bg: "rgba(200,100,255,0.1)", text: "#c864ff", border: "rgba(200,100,255,0.3)" },
-  "Premio": { bg: "rgba(245,197,24,0.12)", text: "#F5C518", border: "rgba(245,197,24,0.4)" },
-  "Publicación": { bg: "rgba(255,150,50,0.1)", text: "#ff9632", border: "rgba(255,150,50,0.3)" },
+  Todos:       { bg: "rgba(245,197,24,0.1)",   text: "#F5C518", border: "rgba(245,197,24,0.3)" },
+  Evento:      { bg: "rgba(100,180,255,0.1)",  text: "#64b4ff", border: "rgba(100,180,255,0.3)" },
+  Conferencia: { bg: "rgba(100,180,255,0.1)",  text: "#64b4ff", border: "rgba(100,180,255,0.3)" },
+  Laboratorio: { bg: "rgba(34,197,94,0.1)",    text: "#22c55e", border: "rgba(34,197,94,0.3)" },
+  Simulación:  { bg: "rgba(200,100,255,0.1)",  text: "#c864ff", border: "rgba(200,100,255,0.3)" },
+  Premio:      { bg: "rgba(245,197,24,0.12)",  text: "#F5C518", border: "rgba(245,197,24,0.4)" },
+  Publicación: { bg: "rgba(255,150,50,0.1)",   text: "#ff9632", border: "rgba(255,150,50,0.3)" },
 };
 
 export function NewsPage() {
   const [activeFilter, setActiveFilter] = useState<Category>("Todos");
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
-  const filters: Category[] = ["Todos", "Conferencia", "Laboratorio", "Simulación", "Premio", "Publicación"];
+  const filters: Category[] = ["Todos", "Evento"];
   const filtered = activeFilter === "Todos" ? news : news.filter((n) => n.category === activeFilter);
   const featured = filtered.filter((n) => n.featured);
   const regular = filtered.filter((n) => !n.featured);
 
   return (
     <div style={{ background: "#0A0A0A", minHeight: "100vh", paddingTop: "72px" }}>
+
       {/* Page hero */}
       <div
         style={{
@@ -130,7 +95,7 @@ export function NewsPage() {
         <StarField density={90} />
         <div style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
           <div style={{ fontFamily: "'Caveat', cursive", color: "rgba(245,197,24,0.4)", fontSize: "0.95rem", marginBottom: "0.75rem" }}>
-            Fig. 5 — Registro Cronológico · Semillero AD ASTRA
+            Fig. 5 — Registro Cronológico · Semillero SIA
           </div>
           <h1
             style={{
@@ -147,7 +112,7 @@ export function NewsPage() {
             <span style={{ color: "#F5C518" }}> SEMILLERO</span>
           </h1>
           <p style={{ color: "#CCCCCC", fontSize: "1rem", lineHeight: 1.8, maxWidth: "580px", margin: "0 auto" }}>
-            Logros, eventos y avances del grupo de investigación AD ASTRA. 
+            Logros, eventos y avances del Semillero de Ingeniería Aeroespacial SIA.
             Nuestra trayectoria hacia las estrellas, documentada.
           </p>
         </div>
@@ -155,6 +120,7 @@ export function NewsPage() {
 
       {/* Content */}
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "4rem 2rem" }}>
+
         {/* Filter pills */}
         <FadeIn>
           <div style={{ display: "flex", gap: "0.5rem", marginBottom: "3rem", flexWrap: "wrap" }}>
@@ -208,10 +174,10 @@ export function NewsPage() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: featured.length > 1 ? "1fr 1fr" : "1fr",
+                gridTemplateColumns: "1fr",
                 gap: "1.5rem",
+                maxWidth: "760px",
               }}
-              className="featured-grid"
             >
               {featured.map((item) => {
                 const col = categoryColors[item.category];
@@ -233,7 +199,7 @@ export function NewsPage() {
                         transform: isHovered ? "translateY(-4px)" : "translateY(0)",
                       }}
                     >
-                      <div style={{ position: "relative", height: "240px", overflow: "hidden" }}>
+                      <div style={{ position: "relative", height: "300px", overflow: "hidden" }}>
                         <img
                           src={item.image}
                           alt={item.title}
@@ -279,7 +245,7 @@ export function NewsPage() {
                         <h3
                           style={{
                             fontFamily: "'Playfair Display', serif",
-                            fontSize: "1.15rem",
+                            fontSize: "1.2rem",
                             fontWeight: 700,
                             color: "#FFFFFF",
                             margin: 0,
@@ -299,6 +265,8 @@ export function NewsPage() {
                             justifyContent: "space-between",
                             paddingTop: "1rem",
                             borderTop: "1px solid rgba(255,255,255,0.06)",
+                            flexWrap: "wrap",
+                            gap: "0.75rem",
                           }}
                         >
                           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
@@ -316,22 +284,32 @@ export function NewsPage() {
                             </span>
                             <span style={{ color: "#555", fontSize: "0.78rem" }}>{item.readTime} lectura</span>
                           </div>
-                          <button
+                          <Link
+                            to={`/noticias/${item.slug}`}
                             style={{
                               color: "#F5C518",
-                              background: "none",
-                              border: "none",
-                              cursor: "pointer",
+                              textDecoration: "none",
                               fontFamily: "'Space Grotesk', sans-serif",
                               fontSize: "0.75rem",
                               letterSpacing: "0.06em",
-                              display: "flex",
+                              display: "inline-flex",
                               alignItems: "center",
                               gap: "0.3rem",
+                              border: "1px solid rgba(245,197,24,0.3)",
+                              padding: "0.35rem 0.85rem",
+                              transition: "all 0.2s",
+                            }}
+                            onMouseEnter={(e) => {
+                              e.currentTarget.style.background = "rgba(245,197,24,0.08)";
+                              e.currentTarget.style.borderColor = "rgba(245,197,24,0.6)";
+                            }}
+                            onMouseLeave={(e) => {
+                              e.currentTarget.style.background = "transparent";
+                              e.currentTarget.style.borderColor = "rgba(245,197,24,0.3)";
                             }}
                           >
                             Leer más <ArrowRight size={13} />
-                          </button>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -455,22 +433,21 @@ export function NewsPage() {
                           >
                             {item.date}
                           </span>
-                          <button
+                          <Link
+                            to={`/noticias/${item.slug}`}
                             style={{
                               color: "#F5C518",
-                              background: "none",
-                              border: "none",
-                              cursor: "pointer",
+                              textDecoration: "none",
                               fontFamily: "'Space Grotesk', sans-serif",
                               fontSize: "0.7rem",
                               letterSpacing: "0.06em",
-                              display: "flex",
+                              display: "inline-flex",
                               alignItems: "center",
                               gap: "0.3rem",
                             }}
                           >
                             Leer más <ArrowRight size={12} />
-                          </button>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -506,11 +483,7 @@ export function NewsPage() {
       </div>
 
       <style>{`
-        .featured-grid {
-          grid-template-columns: 1fr 1fr;
-        }
         @media (max-width: 768px) {
-          .featured-grid { grid-template-columns: 1fr !important; }
           .news-grid { grid-template-columns: 1fr !important; }
         }
       `}</style>

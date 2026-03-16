@@ -8,6 +8,8 @@ import { TeamPage } from "./pages/TeamPage";
 import { NewsPage } from "./pages/NewsPage";
 import { ContactPage } from "./pages/ContactPage";
 import { HidroChallengePage } from "./pages/HidroChallengePage";
+import { NoticiaPresentacionSIA } from "./pages/NoticiaPresentacionSIA";
+
 export const router = createBrowserRouter(
   [
     {
@@ -20,6 +22,7 @@ export const router = createBrowserRouter(
         { path: "proyectos", Component: ProjectsPage },
         { path: "equipo", Component: TeamPage },
         { path: "noticias", Component: NewsPage },
+        { path: "noticias/presentacion-oficial-sia-2025", Component: NoticiaPresentacionSIA },
         { path: "contacto", Component: ContactPage },
         { path: "hidrochallenge", Component: HidroChallengePage },
       ],

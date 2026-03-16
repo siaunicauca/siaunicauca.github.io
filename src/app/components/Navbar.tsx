@@ -5,8 +5,8 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { href: "/", label: "Inicio" },
   { href: "/investigacion", label: "Investigación" },
-  { href: "/publicaciones", label: "Publicaciones" },
-  { href: "/proyectos", label: "Proyectos" },
+  // { href: "/publicaciones", label: "Publicaciones" }, // Desactivado temporalmente
+  // { href: "/proyectos", label: "Proyectos" }, // Desactivado temporalmente
   { href: "/equipo", label: "Equipo" },
   { href: "/noticias", label: "Noticias" },
   { href: "/contacto", label: "Contacto" },

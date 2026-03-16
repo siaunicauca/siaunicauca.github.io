@@ -52,15 +52,14 @@ export function Navbar() {
         }}
       >
         {/* Logo */}
-        <Link to="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.75rem" }}>
-          {/* Patent-style rocket icon */}
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="18" cy="18" r="17" stroke="#F5C518" strokeWidth="1.2" strokeDasharray="3 2" />
-            <path d="M18 6 L22 16 L18 14 L14 16 Z" stroke="#F5C518" strokeWidth="1.4" fill="none" />
-            <path d="M14 16 L12 22 L18 20 L24 22 L22 16" stroke="#F5C518" strokeWidth="1.2" fill="none" />
-            <path d="M15 22 L13 28 L18 26 L23 28 L21 22" stroke="#F5C518" strokeWidth="1" fill="none" opacity="0.7" />
-            <circle cx="18" cy="14" r="1.5" stroke="#F5C518" strokeWidth="1" />
-          </svg>
+          <Link to="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.75rem" }}>
+            <img
+              src="/LOGO_SIA_FORMATO_CIRCULAR.PNG"
+              alt="Logo SIA"
+              width={36}
+              height={36}
+              style={{ display: "block", borderRadius: "50%" }}
+            />
           <div>
             <div
               style={{

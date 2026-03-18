@@ -48,7 +48,7 @@ export function Footer() {
               marginBottom: "0.4rem",
             }}
           >
-            AD ASTRA
+            SIA
           </div>
           <div
             style={{
@@ -163,13 +163,13 @@ export function Footer() {
           </h4>
           <div style={{ display: "flex", gap: "0.75rem", marginBottom: "1.2rem" }}>
             {[
-              { icon: <Github size={18} />, label: "GitHub" },
-              { icon: <Linkedin size={18} />, label: "LinkedIn" },
-              { icon: <ExternalLink size={18} />, label: "ResearchGate" },
+              { icon: <Github size={18} />, label: "GitHub", href: "https://github.com/siaunicauca" },
+              { icon: <Linkedin size={18} />, label: "LinkedIn", href: "#" },
+              { icon: <ExternalLink size={18} />, label: "ResearchGate", href: "#" },
             ].map((social) => (
               <a
                 key={social.label}
-                href="#"
+                href={social.href}
                 title={social.label}
                 style={{
                   color: "#F5C518",
@@ -199,10 +199,10 @@ export function Footer() {
             ))}
           </div>
           <p style={{ color: "#666", fontSize: "0.8rem", lineHeight: 1.6 }}>
-            siaaerospace@universidad.edu.co
+            siaaerospace@unicauca.edu.co
           </p>
           <p style={{ color: "#555", fontSize: "0.75rem", marginTop: "0.4rem" }}>
-            Edificio de Ingeniería, Sala 204
+            Universidad del Cauca, Facultad de Educación
           </p>
         </div>
       </div>
@@ -230,7 +230,7 @@ export function Footer() {
             fontSize: "0.85rem",
           }}
         >
-          Fig. ∞ — Semillero Ad Astra © 2025
+          Fig. ∞ — Semillero SIA © 2025
         </span>
         <span
           style={{
@@ -241,7 +241,7 @@ export function Footer() {
             textTransform: "uppercase",
           }}
         >
-          Semillero — Universidad Nacional — 2025
+          Semillero — Universidad del Cauca — 2025
         </span>
       </div>
     </footer>

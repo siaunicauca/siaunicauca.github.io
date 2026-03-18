@@ -52,7 +52,7 @@ function WatermarkText() {
           userSelect: "none",
         }}
       >
-        AD ASTRA
+        SIA
       </span>
     </div>
   );
@@ -131,19 +131,19 @@ export function ContactPage() {
     {
       icon: <Github size={20} />,
       label: "GitHub",
-      sublabel: "github.com/adastra-aero",
-      href: "#",
+      sublabel: "github.com/siaunicauca",
+      href: "https://github.com/siaunicauca",
     },
     {
       icon: <Linkedin size={20} />,
       label: "LinkedIn",
-      sublabel: "linkedin.com/in/semillero-adastra",
+      sublabel: "linkedin.com/in/semillero-sia",
       href: "#",
     },
     {
       icon: <ExternalLink size={20} />,
       label: "ResearchGate",
-      sublabel: "researchgate.net/semillero-adastra",
+      sublabel: "researchgate.net/semillero-sia",
       href: "#",
     },
   ];
@@ -152,12 +152,12 @@ export function ContactPage() {
     {
       icon: <Mail size={18} />,
       label: "Correo Institucional",
-      value: "semillero.aerospacial@universidad.edu.co",
+      value: "siaaerospace@unicauca.edu.co",
     },
     {
       icon: <MapPin size={18} />,
       label: "Ubicación",
-      value: "Edificio de Ingeniería, Sala 204 · Campus Central",
+      value: "Universidad del Cauca, Facultad de Educación",
     },
     {
       icon: <Clock size={18} />,
@@ -199,7 +199,7 @@ export function ContactPage() {
               marginBottom: "0.75rem",
             }}
           >
-            Fig. 8 — Canal de Comunicaciones · Semillero AD ASTRA
+            Fig. 8 — Canal de Comunicaciones · Semillero SIA
           </div>
           <h1
             style={{
@@ -451,7 +451,7 @@ export function ContactPage() {
                     letterSpacing: "0.08em",
                   }}
                 >
-                  SEMILLERO AD ASTRA · EST. 2019
+                  SEMILLERO SIA · EST. 2019
                 </div>
               </div>
             </FadeIn>
@@ -573,7 +573,7 @@ export function ContactPage() {
                       ¡Mensaje enviado!
                     </h3>
                     <p style={{ color: "#CCCCCC", fontSize: "0.88rem", lineHeight: 1.6 }}>
-                      Nos pondremos en contacto contigo a la brevedad. ¡Gracias por tu interés en el Semillero AD ASTRA!
+                      Nos pondremos en contacto contigo a la brevedad. ¡Gracias por tu interés en el Semillero SIA!
                     </p>
                   </div>
                 ) : (
@@ -864,7 +864,7 @@ export function ContactPage() {
                   ¿Quieres explorar el cosmos con nosotros?
                 </h3>
                 <p style={{ color: "#999", fontSize: "0.88rem", lineHeight: 1.65, margin: 0, maxWidth: "550px" }}>
-                  El Semillero AD ASTRA convoca estudiantes de ingeniería y ciencias apasionados por la exploración espacial. 
+                  El Semillero SIA convoca estudiantes de ingeniería y ciencias apasionados por la exploración espacial. 
                   Te esperamos en la frontera del conocimiento.
                 </p>
               </div>
@@ -880,7 +880,7 @@ export function ContactPage() {
                     textAlign: "center",
                   }}
                 >
-                  Semillero — Universidad Nacional — 2025
+                  Semillero — Universidad del Cauca — 2025
                 </div>
                 <div
                   style={{
@@ -908,7 +908,7 @@ export function ContactPage() {
                         lineHeight: 1.1,
                       }}
                     >
-                      AD ASTRA
+                      SIA
                     </div>
                     <div
                       style={{
@@ -919,7 +919,7 @@ export function ContactPage() {
                         textTransform: "uppercase",
                       }}
                     >
-                      Semillero Aeroespacial
+                      Semillero de Ingeniería Aeroespacial
                     </div>
                   </div>
                 </div>

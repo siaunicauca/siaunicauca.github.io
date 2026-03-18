@@ -140,7 +140,7 @@ export function ProjectsPage() {
               marginBottom: "0.75rem",
             }}
           >
-            Fig. 3 — Registro de Proyectos · Semillero AD ASTRA
+            Fig. 3 — Registro de Proyectos · Semillero SIA
           </div>
           <h1
             style={{

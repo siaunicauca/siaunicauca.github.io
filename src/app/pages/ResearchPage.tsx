@@ -167,7 +167,7 @@ export function ResearchPage() {
             <span style={{ color: "#F5C518" }}> INVESTIGACIÓN</span>
           </h1>
           <p style={{ color: "#CCCCCC", fontSize: "1rem", lineHeight: 1.8, maxWidth: "600px", margin: "0 auto" }}>
-            Cuatro áreas de especialización que definen el horizonte científico del Semillero AD ASTRA, 
+            Cuatro áreas de especialización que definen el horizonte científico del Semillero SIA,
             alineadas con las líneas de investigación del Grupo SIDICO.
           </p>
         </div>

@@ -733,7 +733,7 @@ const newsPreview = [
     id: 1,
     image: IMG_CONFERENCE,
     category: "Conferencia",
-    title: "AD ASTRA presenta en el Congreso Colombiano de Ingeniería Aeronáutica",
+    title: "SIA presenta en el Congreso Colombiano de Ingeniería Aeronáutica",
     excerpt: "Nuestros investigadores expusieron avances en aerodinámica computacional ante más de 300 especialistas del sector aeroespacial latinoamericano.",
     date: "Enero 2025",
     featured: true,
@@ -788,7 +788,7 @@ function NewsSection() {
           <SectionHeader
             label="Noticias"
             title="Noticias del Semillero"
-            subtitle="Últimas novedades, logros y avances del grupo de investigación AD ASTRA."
+            subtitle="Últimas novedades, logros y avances del grupo de investigación SIA."
             figLabel="Fig. 5 — Registro Cronológico"
           />
         </FadeIn>

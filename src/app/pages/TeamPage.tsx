@@ -200,7 +200,7 @@ export function TeamPage() {
           </h1>
           <p style={{ color: "#CCCCCC", fontSize: "1rem", lineHeight: 1.8, maxWidth: "560px", margin: "0 auto" }}>
             Investigadores, estudiantes doctorales y semilleristas que impulsan 
-            la excelencia científica del grupo AD ASTRA.
+            la excelencia científica del Semillero SIA.
           </p>
         </div>
       </div>

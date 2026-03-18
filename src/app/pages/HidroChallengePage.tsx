@@ -150,12 +150,21 @@ function CountdownSection() {
 
 // ─── ROADMAP / FECHAS IMPORTANTES ───────────────────────────────────────────
 const roadmapEvents = [
-  { date: "15 mayo", title: "Etapa I", description: "1ª Entrega de Reporte Técnico (PDR) + Video", rubrica: "Rúbrica: R1", icon: <FileText size={18} /> },
-  { date: "19 junio", title: "Resultados", description: "Publicación de equipos seleccionados para realizar lanzamientos autorizados", rubrica: "Carta de aceptación", icon: <CalendarDays size={18} /> },
-  { date: "20 agosto", title: "Etapa II", description: "2ª Entrega de Reporte Técnico (CDR + Video)", rubrica: "Rúbrica: R1", icon: <FileText size={18} /> },
-  { date: "14-15 oct", title: "Etapa III", description: "Evaluación, Revisión y resguardos de Cohetes", rubrica: "N/A", icon: <Rocket size={18} /> },
-  { date: "15 octubre", title: "Etapa III", description: "Lanzamiento y Evaluación Presencial Hidropropulsados", rubrica: "Rúbricas: R5 y R6", icon: <MapPin size={18} /> },
-  { date: "16 octubre", title: "Etapa III", description: "Lanzamiento y Evaluación Presencial Combustible Sólido", rubrica: "Rúbricas: R5 y R6", icon: <MapPin size={18} /> },
+  { date: "18 marzo", title: "Convocatoria", description: "Publicación de convocatoria e inicio de inscripciones", rubrica: "", icon: <CalendarDays size={18} /> },
+  { date: "18 abril", title: "Cierre de inscripciones", description: "Fecha límite para registro de equipos", rubrica: "", icon: <CalendarDays size={18} /> },
+  { date: "2 mayo", title: "Reunión informativa", description: "Reunión informativa de inicio de la competencia", rubrica: "", icon: <CalendarDays size={18} /> },
+  { date: "9 mayo", title: "Taller 1", description: "Primer taller de la competencia", rubrica: "", icon: <FileText size={18} /> },
+  { date: "16 mayo", title: "Taller 2", description: "Segundo taller de la competencia", rubrica: "", icon: <FileText size={18} /> },
+  { date: "23 mayo", title: "Taller 3", description: "Tercer taller de la competencia", rubrica: "", icon: <FileText size={18} /> },
+  { date: "30 mayo", title: "Taller 4", description: "Cuarto taller de la competencia", rubrica: "", icon: <FileText size={18} /> },
+  { date: "6 junio", title: "Taller 5", description: "Quinto taller de la competencia", rubrica: "", icon: <FileText size={18} /> },
+  { date: "12 junio", title: "Entrega PDR", description: "Entrega de Reporte de Diseño Preliminar (PDR)", rubrica: "", icon: <FileText size={18} /> },
+  { date: "14 agosto", title: "Video de funcionamiento", description: "Entrega de video de funcionamiento", rubrica: "", icon: <FileText size={18} /> },
+  { date: "7 septiembre", title: "Publicación de resultados", description: "Publicación de equipos seleccionados para la competencia", rubrica: "", icon: <CalendarDays size={18} /> },
+  { date: "5 octubre", title: "Espacio de pruebas", description: "Espacio de pruebas para los equipos en el lugar de lanzamiento", rubrica: "", icon: <MapPin size={18} /> },
+  { date: "7 octubre", title: "Día 1 de competencia", description: "Revisión y Presentación Oral", rubrica: "", icon: <Rocket size={18} /> },
+  { date: "8 octubre", title: "Día 2 de competencia", description: "Lanzamientos", rubrica: "", icon: <Rocket size={18} /> },
+  { date: "9 octubre", title: "Premiación", description: "Premiación y cierre de competencia", rubrica: "", icon: <CalendarDays size={18} /> },
 ];
 
 function RoadmapSection() {

@@ -38,7 +38,7 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 }
 
 // ─── COUNTDOWN ──────────────────────────────────────────────────────────────
-const EVENT_DATE = new Date("2026-10-14T08:00:00-05:00");
+const EVENT_DATE = new Date("2026-10-07T08:00:00-05:00");
 
 function useCountdown(target: Date) {
   const [now, setNow] = useState(new Date());
@@ -100,7 +100,7 @@ function CountdownSection() {
             HidroChallenge IPN - UNICAUCA <span style={{ color: "#F5C518" }}>2026</span>
           </h2>
           <p style={{ color: "#F5C518", fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.15em", fontSize: "0.85rem", marginBottom: "2.5rem" }}>
-            Del 14 al 16 de Octubre, 2026
+            Del 7 al 9 de Octubre, 2026
           </p>
 
           <div style={{ display: "flex", justifyContent: "center", gap: "1.25rem", flexWrap: "wrap" }}>
@@ -159,7 +159,7 @@ const roadmapEvents = [
   { date: "6 junio", title: "Taller 5", description: "Quinto taller de la competencia", rubrica: "", icon: <FileText size={18} /> },
   { date: "12 junio", title: "Entrega PDR", description: "Entrega de Reporte de Diseño Preliminar (PDR)", rubrica: "", icon: <FileText size={18} /> },
   { date: "14 agosto", title: "Video de funcionamiento", description: "Entrega de video de funcionamiento", rubrica: "", icon: <FileText size={18} /> },
-  { date: "7 septiembre", title: "Publicación de resultados", description: "Publicación de resultados parciales", rubrica: "", icon: <CalendarDays size={18} /> },
+  { date: "7 septiembre", title: "Publicación de resultados parciales", description: "Publicación de resultados parciales de la competencia", rubrica: "", icon: <CalendarDays size={18} /> },
   { date: "5 octubre", title: "Espacio de pruebas", description: "Espacio de pruebas para los equipos en el lugar de lanzamiento", rubrica: "", icon: <MapPin size={18} /> },
   { date: "7 octubre", title: "Día 1 de competencia", description: "Revisión y Presentación Oral", rubrica: "", icon: <Rocket size={18} /> },
   { date: "8 octubre", title: "Día 2 de competencia", description: "Lanzamientos", rubrica: "", icon: <Rocket size={18} /> },
@@ -466,7 +466,7 @@ function ExternalLinkSection() {
               margin: "0 0 0.75rem",
             }}
           >
-            Página de <span style={{ color: "#F5C518" }}>HidroChallenge del lado IPN</span>
+            Página de <span style={{ color: "#F5C518" }}>HidroChallenge IPN 2026</span>
           </h3>
           <p
             style={{

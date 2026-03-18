@@ -4,7 +4,6 @@ import {
   Clock,
   FileText,
   ExternalLink,
-  Image as ImageIcon,
   CalendarDays,
   Rocket,
   ChevronRight,
@@ -160,7 +159,7 @@ const roadmapEvents = [
   { date: "6 junio", title: "Taller 5", description: "Quinto taller de la competencia", rubrica: "", icon: <FileText size={18} /> },
   { date: "12 junio", title: "Entrega PDR", description: "Entrega de Reporte de Diseño Preliminar (PDR)", rubrica: "", icon: <FileText size={18} /> },
   { date: "14 agosto", title: "Video de funcionamiento", description: "Entrega de video de funcionamiento", rubrica: "", icon: <FileText size={18} /> },
-  { date: "7 septiembre", title: "Publicación de resultados", description: "Publicación de equipos seleccionados para la competencia", rubrica: "", icon: <CalendarDays size={18} /> },
+  { date: "7 septiembre", title: "Publicación de resultados", description: "Publicación de resultados parciales", rubrica: "", icon: <CalendarDays size={18} /> },
   { date: "5 octubre", title: "Espacio de pruebas", description: "Espacio de pruebas para los equipos en el lugar de lanzamiento", rubrica: "", icon: <MapPin size={18} /> },
   { date: "7 octubre", title: "Día 1 de competencia", description: "Revisión y Presentación Oral", rubrica: "", icon: <Rocket size={18} /> },
   { date: "8 octubre", title: "Día 2 de competencia", description: "Lanzamientos", rubrica: "", icon: <Rocket size={18} /> },
@@ -304,180 +303,12 @@ function RoadmapSection() {
 }
 
 // ─── GALERÍA DE IMÁGENES ────────────────────────────────────────────────────
-const galleryImages = [
-  { src: "/images/hidrochallenge/img1.jpg", alt: "Lanzamiento de cohete hidropropulsado", caption: "Lanzamiento — HidroChallenge 2024" },
-  { src: "/images/hidrochallenge/img2.jpg", alt: "Equipo de trabajo en el taller", caption: "Manufactura — Equipo Ad Astra" },
-  { src: "/images/hidrochallenge/img3.jpg", alt: "Revisión de diseño", caption: "Revisión de diseño preliminar" },
-  { src: "/images/hidrochallenge/img4.jpg", alt: "Ceremonia de premiación", caption: "Ceremonia — HidroChallenge 2024" },
-];
-
-function GallerySection() {
-  const [selected, setSelected] = useState<number | null>(null);
-
-  return (
-    <section style={{ background: "#0F0F0F", padding: "5rem 2rem", position: "relative", overflow: "hidden" }}>
-      <div
-        style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage:
-            "repeating-linear-gradient(45deg, rgba(245,197,24,0.015) 0, rgba(245,197,24,0.015) 1px, transparent 0, transparent 50%)",
-          backgroundSize: "20px 20px",
-          pointerEvents: "none",
-        }}
-      />
-
-      <div style={{ maxWidth: "1100px", margin: "0 auto", position: "relative", zIndex: 1 }}>
-        <FadeIn>
-          <div style={{ textAlign: "center", marginBottom: "3rem" }}>
-            <div
-              style={{
-                fontFamily: "'Barlow Condensed', sans-serif",
-                fontSize: "0.72rem",
-                fontWeight: 600,
-                letterSpacing: "0.28em",
-                textTransform: "uppercase",
-                color: "#F5C518",
-                marginBottom: "0.75rem",
-                display: "flex",
-                alignItems: "center",
-                gap: "0.75rem",
-                justifyContent: "center",
-              }}
-            >
-              <span style={{ display: "block", width: "30px", height: "1px", background: "#F5C518" }} />
-              Galería
-              <span style={{ display: "block", width: "30px", height: "1px", background: "#F5C518" }} />
-            </div>
-            <h2
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                fontSize: "clamp(1.5rem, 3.5vw, 2.2rem)",
-                fontWeight: 700,
-                color: "#FFFFFF",
-                margin: 0,
-              }}
-            >
-              Momentos <span style={{ color: "#F5C518" }}>Destacados</span>
-            </h2>
-          </div>
-        </FadeIn>
-
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: "1rem" }}>
-          {galleryImages.map((img, i) => (
-            <FadeIn key={i} delay={i * 100}>
-              <div
-                onClick={() => setSelected(i)}
-                style={{
-                  position: "relative",
-                  cursor: "pointer",
-                  overflow: "hidden",
-                  borderRadius: "4px",
-                  border: "1px solid rgba(245,197,24,0.1)",
-                  aspectRatio: "4/3",
-                  background: "#1A1A1A",
-                  transition: "border-color 0.3s",
-                }}
-                onMouseEnter={(e) => (e.currentTarget.style.borderColor = "rgba(245,197,24,0.4)")}
-                onMouseLeave={(e) => (e.currentTarget.style.borderColor = "rgba(245,197,24,0.1)")}
-              >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = "none";
-                    e.currentTarget.parentElement!.querySelector<HTMLElement>(".placeholder")!.style.display = "flex";
-                  }}
-                />
-                {/* Placeholder when image not found */}
-                <div
-                  className="placeholder"
-                  style={{
-                    display: "none",
-                    position: "absolute",
-                    inset: 0,
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexDirection: "column",
-                    gap: "0.5rem",
-                    color: "rgba(245,197,24,0.3)",
-                  }}
-                >
-                  <ImageIcon size={32} />
-                  <span style={{ fontFamily: "'Barlow Condensed', sans-serif", fontSize: "0.7rem", letterSpacing: "0.1em" }}>
-                    Sin imagen
-                  </span>
-                </div>
-                {/* Caption overlay */}
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    background: "linear-gradient(transparent, rgba(0,0,0,0.85))",
-                    padding: "2rem 0.75rem 0.75rem",
-                  }}
-                >
-                  <span
-                    style={{
-                      fontFamily: "'Caveat', cursive",
-                      color: "rgba(245,197,24,0.6)",
-                      fontSize: "0.8rem",
-                    }}
-                  >
-                    {img.caption}
-                  </span>
-                </div>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
-      </div>
-
-      {/* Lightbox */}
-      {selected !== null && (
-        <div
-          onClick={() => setSelected(null)}
-          style={{
-            position: "fixed",
-            inset: 0,
-            zIndex: 1000,
-            background: "rgba(0,0,0,0.92)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            cursor: "zoom-out",
-            padding: "2rem",
-          }}
-        >
-          <img
-            src={galleryImages[selected].src}
-            alt={galleryImages[selected].alt}
-            style={{ maxWidth: "90vw", maxHeight: "85vh", objectFit: "contain", borderRadius: "4px" }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              bottom: "2rem",
-              color: "#CCCCCC",
-              fontFamily: "'Caveat', cursive",
-              fontSize: "1rem",
-            }}
-          >
-            {galleryImages[selected].caption}
-          </div>
-        </div>
-      )}
-    </section>
-  );
-}
+// Sección deshabilitada: era de registro/historial, no de convocatoria
 
 // ─── DOCUMENTO PDF ──────────────────────────────────────────────────────────
 function DocumentSection() {
   // Cambia esta ruta al PDF real de la convocatoria
-  const pdfUrl = "/documents/hidrochallenge-convocatoria-2026.pdf";
+  const pdfUrl = "https://drive.google.com/file/d/1eyIowEl6zgv7TYioyCBpvj423b8Mk0Tz/view?usp=drive_link";
 
   return (
     <section style={{ background: "#0A0A0A", padding: "5rem 2rem", position: "relative" }}>
@@ -557,7 +388,7 @@ function DocumentSection() {
                 Descargar PDF
               </a>
               <a
-                href="https://urlforms"
+                href="https://forms.gle/fBARuUodm1MEVrg3A"
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -757,7 +588,6 @@ export function HidroChallengePage() {
       <HeroSection />
       <CountdownSection />
       <RoadmapSection />
-      <GallerySection />
       <DocumentSection />
       <ExternalLinkSection />
     </div>

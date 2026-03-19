@@ -97,7 +97,7 @@ function CountdownSection() {
               margin: "0 0 0.5rem",
             }}
           >
-            HidroChallenge IPN - UNICAUCA <span style={{ color: "#F5C518" }}>2026</span>
+            HidroChallenge Colombia <span style={{ color: "#F5C518" }}>2026</span>
           </h2>
           <p style={{ color: "#F5C518", fontFamily: "'Barlow Condensed', sans-serif", letterSpacing: "0.15em", fontSize: "0.85rem", marginBottom: "2.5rem" }}>
             Del 7 al 9 de Octubre, 2026
@@ -152,11 +152,11 @@ const roadmapEvents = [
   { date: "18 marzo", title: "Convocatoria", description: "Publicación de convocatoria e inicio de inscripciones", rubrica: "", icon: <CalendarDays size={18} /> },
   { date: "18 abril", title: "Cierre de inscripciones", description: "Fecha límite para registro de equipos", rubrica: "", icon: <CalendarDays size={18} /> },
   { date: "2 mayo", title: "Reunión informativa", description: "Reunión informativa de inicio de la competencia", rubrica: "", icon: <CalendarDays size={18} /> },
-  { date: "9 mayo", title: "Taller 1", description: "Primer taller de la competencia", rubrica: "", icon: <FileText size={18} /> },
-  { date: "16 mayo", title: "Taller 2", description: "Segundo taller de la competencia", rubrica: "", icon: <FileText size={18} /> },
-  { date: "23 mayo", title: "Taller 3", description: "Tercer taller de la competencia", rubrica: "", icon: <FileText size={18} /> },
-  { date: "30 mayo", title: "Taller 4", description: "Cuarto taller de la competencia", rubrica: "", icon: <FileText size={18} /> },
-  { date: "6 junio", title: "Taller 5", description: "Quinto taller de la competencia", rubrica: "", icon: <FileText size={18} /> },
+  { date: "9 mayo", title: "Taller 1 — Introducción a la cohetería", description: "Conceptos fundamentales de la cohetería y física de propulsión", rubrica: "", icon: <FileText size={18} /> },
+  { date: "16 mayo", title: "Taller 2 — Construcción de cohetes", description: "Diseño y construcción del cohete hidropropulsado", rubrica: "", icon: <FileText size={18} /> },
+  { date: "23 mayo", title: "Taller 3 — Propulsión de cohetes", description: "Sistemas de propulsión hidráulica y aerodinámica aplicada", rubrica: "", icon: <FileText size={18} /> },
+  { date: "30 mayo", title: "Taller 4 — Protección de carga útil y sistemas de recuperación", description: "Diseño de sistemas de protección de carga útil y recuperación del cohete", rubrica: "", icon: <FileText size={18} /> },
+  { date: "6 junio", title: "Taller 5 — Electrónica para sistemas aeroespaciales", description: "Instrumentación electrónica y telemetría para cohetes", rubrica: "", icon: <FileText size={18} /> },
   { date: "12 junio", title: "Entrega PDR", description: "Entrega de Reporte de Diseño Preliminar (PDR)", rubrica: "", icon: <FileText size={18} /> },
   { date: "14 agosto", title: "Video de funcionamiento", description: "Entrega de video de funcionamiento", rubrica: "", icon: <FileText size={18} /> },
   { date: "7 septiembre", title: "Publicación de resultados parciales", description: "Publicación de resultados parciales de la competencia", rubrica: "", icon: <CalendarDays size={18} /> },
@@ -201,7 +201,7 @@ function RoadmapSection() {
                 margin: 0,
               }}
             >
-              Roadmap <span style={{ color: "#F5C518" }}>2026</span>
+              Cronograma <span style={{ color: "#F5C518" }}>2026</span>
             </h2>
           </div>
         </FadeIn>
@@ -345,7 +345,7 @@ function DocumentSection() {
                 margin: "0 0 0.75rem",
               }}
             >
-              Convocatoria <span style={{ color: "#F5C518" }}>2026</span>
+              Convocatoria e inscripciones <span style={{ color: "#F5C518" }}>2026</span>
             </h3>
             <p
               style={{
@@ -357,7 +357,7 @@ function DocumentSection() {
                 margin: "0 auto 1.5rem",
               }}
             >
-              Descarga el documento completo con las bases, requisitos técnicos y categorías de competencia del HidroChallenge IPN 2026.
+              Aquí podrá encontrar la guía de misión con las bases, requisitos técnicos, categorías y la información completa de la competencia. Les sugerimos primero leerla detenidamente antes de pasar a realizar la inscripción de su equipo a través del respectivo formulario.
             </p>
             <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
               <a
@@ -466,7 +466,7 @@ function ExternalLinkSection() {
               margin: "0 0 0.75rem",
             }}
           >
-            Página de <span style={{ color: "#F5C518" }}>HidroChallenge IPN 2026</span>
+            Página de <span style={{ color: "#F5C518" }}>HidroChallenge Colombia 2026</span>
           </h3>
           <p
             style={{
@@ -477,7 +477,7 @@ function ExternalLinkSection() {
               margin: "0 auto 1.5rem",
             }}
           >
-            Visita el sitio oficial del HidroChallenge IPN para más información, inscripción y recursos técnicos.
+            Visita el sitio oficial del HidroChallenge para más información, inscripción y recursos técnicos.
           </p>
           <a
             href={externalUrl}
@@ -573,8 +573,8 @@ function HeroSection() {
           UNIVERSIDAD DEL CAUCA
         </h2>
         <p style={{ color: "#CCCCCC", fontSize: "1rem", lineHeight: 1.8, maxWidth: "600px", margin: "0 auto" }}>
-          Competencia internacional de cohetes hidropropulsados organizada por el Instituto Politécnico Nacional De México Y la Universidad del Cauca de Colombia. <br></br>
-          
+          Competencia de cohetes hidropropulsados organizada por nuestro semillero en conjunto con el capítulo estudiantil IEEE AESS Unicauca.<br />
+          Con el apoyo académico del Instituto Politécnico Nacional (IPN) de México y el departamento de física de la Universidad del Cauca.
         </p>
       </div>
     </div>
@@ -587,8 +587,8 @@ export function HidroChallengePage() {
     <div style={{ background: "#0A0A0A", minHeight: "100vh", paddingTop: "72px" }}>
       <HeroSection />
       <CountdownSection />
-      <RoadmapSection />
       <DocumentSection />
+      <RoadmapSection />
       <ExternalLinkSection />
     </div>
   );

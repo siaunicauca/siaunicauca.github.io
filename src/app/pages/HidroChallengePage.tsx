@@ -466,7 +466,7 @@ function ExternalLinkSection() {
               margin: "0 0 0.75rem",
             }}
           >
-            Página de <span style={{ color: "#F5C518" }}>HidroChallenge Colombia 2026</span>
+            Página de <span style={{ color: "#F5C518" }}>HidroChallenge IPN 2026</span>
           </h3>
           <p
             style={{

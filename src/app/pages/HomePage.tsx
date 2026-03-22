@@ -7,9 +7,7 @@ import { SectionHeader } from "../components/SectionHeader";
 
 // Images
 const IMG_ROCKET = "https://images.unsplash.com/photo-1600115352168-970e7f6e911f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZXJvc3BhY2UlMjByb2NrZXQlMjBsYXVuY2glMjBuaWdodCUyMGRhcmslMjBza3l8ZW58MXx8fHwxNzcxNjI4NjQ5fDA&ixlib=rb-4.1.0&q=80&w=1080";
-const IMG_CONFERENCE = "https://images.unsplash.com/photo-1704177094034-46a04b901bed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhZXJvc3BhY2UlMjBlbmdpbmVlcmluZyUyMGNvbmZlcmVuY2UlMjBzdHVkZW50cyUyMHJlc2VhcmNofGVufDF8fHx8MTc3MTYyODY1Mnww&ixlib=rb-4.1.0&q=80&w=1080";
-const IMG_WIND_TUNNEL = "https://images.unsplash.com/photo-1764675903774-336e6ef8d09c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3aW5kJTIwdHVubmVsJTIwYWVyb2R5bmFtaWNzJTIwdGVzdCUyMGFlcm9zcGFjZXxlbnwxfHx8fDE3NzE2Mjg2NDl8MA&ixlib=rb-4.1.0&q=80&w=1080";
-const IMG_CFD = "https://images.unsplash.com/photo-1756751579863-49b26247e1fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxDRkQlMjBjb21wdXRhdGlvbmFsJTIwZmx1aWQlMjBkeW5hbWljcyUyMHNpbXVsYXRpb24lMjB2aXN1YWxpemF0aW9ufGVufDF8fHx8MTc3MTYyODY1MHww&ixlib=rb-4.1.0&q=80&w=1080";
+import coverImgPresentacion from "../../media/Bienvenida/welcom1.jpeg";
 
 // Fade-in hook
 function useFadeIn(threshold = 0.15) {
@@ -731,30 +729,12 @@ function ResearchSection() {
 const newsPreview = [
   {
     id: 1,
-    image: IMG_CONFERENCE,
-    category: "Conferencia",
-    title: "SIA presenta en el Congreso Colombiano de Ingeniería Aeronáutica",
-    excerpt: "Nuestros investigadores expusieron avances en aerodinámica computacional ante más de 300 especialistas del sector aeroespacial latinoamericano.",
-    date: "Enero 2025",
+    image: coverImgPresentacion,
+    category: "Evento",
+    title: "Semillero de Ingeniería Aeroespacial SIA es presentado oficialmente ante la comunidad académica de la Universidad del Cauca",
+    excerpt: "El 5 de diciembre de 2025 se llevó a cabo la presentación oficial del Semillero de Ingeniería Aeroespacial SIA ante la comunidad académica de la Universidad del Cauca, en un evento realizado en el auditorio principal de la Facultad de Ciencias Naturales, Exactas y de la Educación (FACNED), marcando un hito tras obtener su reconocimiento oficial por parte de la Vicerrectoría de Investigaciones (VRI).",
+    date: "5 Diciembre, 2025",
     featured: true,
-  },
-  {
-    id: 2,
-    image: IMG_WIND_TUNNEL,
-    category: "Laboratorio",
-    title: "Nuevo túnel de viento subsónico operativo en el campus",
-    excerpt: "La nueva instalación experimental permite ensayos a Re hasta 500,000, fortaleciendo la capacidad de investigación del semillero.",
-    date: "Diciembre 2024",
-    featured: false,
-  },
-  {
-    id: 3,
-    image: IMG_CFD,
-    category: "Simulación",
-    title: "Simulación CFD del flujo laminar sobre ala tipo NACA 4412",
-    excerpt: "Resultados preliminares muestran excelente correlación con datos experimentales, validando nuestra metodología numérica de alto orden.",
-    date: "Noviembre 2024",
-    featured: false,
   },
 ];
 
@@ -793,15 +773,7 @@ function NewsSection() {
           />
         </FadeIn>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1.6fr 1fr",
-            gridTemplateRows: "auto auto",
-            gap: "1.5rem",
-          }}
-          className="news-grid"
-        >
+        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
           {/* Featured card */}
           <FadeIn>
             <div
@@ -810,7 +782,6 @@ function NewsSection() {
                 border: "1px solid rgba(245,197,24,0.12)",
                 borderLeft: "4px solid #F5C518",
                 overflow: "hidden",
-                gridRow: "1 / 3",
                 display: "flex",
                 flexDirection: "column",
                 transition: "box-shadow 0.3s",
@@ -822,7 +793,7 @@ function NewsSection() {
                 ((e.currentTarget as HTMLElement).style.boxShadow = "none")
               }
             >
-              <div style={{ position: "relative", height: "280px", overflow: "hidden" }}>
+              <div style={{ position: "relative", height: "300px", overflow: "hidden" }}>
                 <img
                   src={newsPreview[0].image}
                   alt={newsPreview[0].title}
@@ -893,7 +864,7 @@ function NewsSection() {
                     {newsPreview[0].date}
                   </span>
                   <Link
-                    to="/noticias"
+                    to="/noticias/presentacion-oficial-sia-2025"
                     style={{
                       color: "#F5C518",
                       textDecoration: "none",
@@ -911,81 +882,6 @@ function NewsSection() {
               </div>
             </div>
           </FadeIn>
-
-          {/* Regular news cards */}
-          {newsPreview.slice(1).map((news, i) => (
-            <FadeIn key={news.id} delay={(i + 1) * 100}>
-              <div
-                style={{
-                  background: "#111111",
-                  border: "1px solid rgba(245,197,24,0.1)",
-                  overflow: "hidden",
-                  display: "flex",
-                  transition: "box-shadow 0.3s",
-                }}
-                onMouseEnter={(e) =>
-                  ((e.currentTarget as HTMLElement).style.boxShadow = "0 4px 24px rgba(245,197,24,0.08)")
-                }
-                onMouseLeave={(e) =>
-                  ((e.currentTarget as HTMLElement).style.boxShadow = "none")
-                }
-              >
-                <div style={{ width: "120px", flexShrink: 0, overflow: "hidden" }}>
-                  <img
-                    src={news.image}
-                    alt={news.title}
-                    style={{ width: "100%", height: "100%", objectFit: "cover", filter: "brightness(0.7)" }}
-                  />
-                </div>
-                <div style={{ padding: "1.25rem", flex: 1 }}>
-                  <span
-                    style={{
-                      background: "rgba(245,197,24,0.12)",
-                      color: "#F5C518",
-                      fontFamily: "'Space Grotesk', sans-serif",
-                      fontSize: "0.6rem",
-                      fontWeight: 700,
-                      letterSpacing: "0.15em",
-                      textTransform: "uppercase",
-                      padding: "0.2rem 0.5rem",
-                      display: "inline-block",
-                      marginBottom: "0.6rem",
-                    }}
-                  >
-                    {news.category}
-                  </span>
-                  <h4
-                    style={{
-                      fontFamily: "'Playfair Display', serif",
-                      fontSize: "0.95rem",
-                      fontWeight: 700,
-                      color: "#FFFFFF",
-                      margin: 0,
-                      marginBottom: "0.5rem",
-                      lineHeight: 1.35,
-                    }}
-                  >
-                    {news.title}
-                  </h4>
-                  <Link
-                    to="/noticias"
-                    style={{
-                      color: "#F5C518",
-                      textDecoration: "none",
-                      fontFamily: "'Space Grotesk', sans-serif",
-                      fontSize: "0.72rem",
-                      letterSpacing: "0.06em",
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "0.3rem",
-                    }}
-                  >
-                    Leer más <ArrowRight size={11} />
-                  </Link>
-                </div>
-              </div>
-            </FadeIn>
-          ))}
         </div>
 
         <div style={{ textAlign: "center", marginTop: "2.5rem" }}>
@@ -1017,15 +913,6 @@ function NewsSection() {
         </div>
       </div>
 
-      <style>{`
-        .news-grid {
-          grid-template-columns: 1.6fr 1fr;
-          grid-template-rows: auto auto;
-        }
-        @media (max-width: 900px) {
-          .news-grid { grid-template-columns: 1fr !important; grid-template-rows: auto !important; }
-        }
-      `}</style>
     </section>
   );
 }

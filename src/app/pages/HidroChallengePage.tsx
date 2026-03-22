@@ -574,7 +574,7 @@ function HeroSection() {
         </h2>
         <p style={{ color: "#CCCCCC", fontSize: "1rem", lineHeight: 1.8, maxWidth: "600px", margin: "0 auto" }}>
           Competencia de cohetes hidropropulsados organizada por nuestro semillero en conjunto con el capítulo estudiantil IEEE AESS Unicauca.<br />
-          Con el apoyo académico del Instituto Politécnico Nacional (IPN) de México y el departamento de física de la Universidad del Cauca.
+          Con el apoyo académico del Centro de Desarrollo Aeroespacial (CDA) del Instituto Politécnico Nacional (IPN) de México y el Departamento de Física de la Universidad del Cauca.
         </p>
       </div>
     </div>

@@ -150,7 +150,7 @@ function CountdownSection() {
 // ─── ROADMAP / FECHAS IMPORTANTES ───────────────────────────────────────────
 const roadmapEvents = [
   { date: "18 marzo", title: "Convocatoria", description: "Publicación de convocatoria e inicio de inscripciones", rubrica: "", icon: <CalendarDays size={18} /> },
-  { date: "18 abril", title: "Cierre de inscripciones", description: "Fecha límite para registro de equipos", rubrica: "", icon: <CalendarDays size={18} /> },
+  { date: "25 abril", title: "Cierre de inscripciones", description: "Fecha límite para registro de equipos", rubrica: "", icon: <CalendarDays size={18} /> },
   { date: "2 mayo", title: "Reunión informativa", description: "Reunión informativa de inicio de la competencia", rubrica: "", icon: <CalendarDays size={18} /> },
   { date: "9 mayo", title: "Taller 1 — Introducción a la cohetería", description: "Conceptos fundamentales de la cohetería y física de propulsión", rubrica: "", icon: <FileText size={18} /> },
   { date: "16 mayo", title: "Taller 2 — Construcción de cohetes", description: "Diseño y construcción del cohete hidropropulsado", rubrica: "", icon: <FileText size={18} /> },
@@ -308,7 +308,7 @@ function RoadmapSection() {
 // ─── DOCUMENTO PDF ──────────────────────────────────────────────────────────
 function DocumentSection() {
   // Cambia esta ruta al PDF real de la convocatoria
-  const pdfUrl = "https://drive.google.com/file/d/1eyIowEl6zgv7TYioyCBpvj423b8Mk0Tz/view?usp=drive_link";
+  const pdfUrl = "https://drive.google.com/file/d/1vC9VLoCPyiqL99c0VgCqMVavsT3RCzub/view?usp=sharing";
 
   return (
     <section style={{ background: "#0A0A0A", padding: "5rem 2rem", position: "relative" }}>

@@ -37,6 +37,27 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   );
 }
 
+// ─── LOGO SECTION ───────────────────────────────────────────────────────────
+function LogoSection() {
+  return (
+    <section style={{ background: "#0D0D0D", padding: "3.5rem 2rem 2rem", textAlign: "center" }}>
+      <FadeIn>
+        <img
+          src="/hidrochallenge_logo.png"
+          alt="HidroChallenge Colombia 2026"
+          style={{
+            width: "clamp(160px, 28vw, 260px)",
+            height: "auto",
+            margin: "0 auto",
+            display: "block",
+            filter: "drop-shadow(0 0 24px rgba(245,197,24,0.18))",
+          }}
+        />
+      </FadeIn>
+    </section>
+  );
+}
+
 // ─── COUNTDOWN ──────────────────────────────────────────────────────────────
 const EVENT_DATE = new Date("2026-10-07T08:00:00-05:00");
 
@@ -150,7 +171,7 @@ function CountdownSection() {
 // ─── ROADMAP / FECHAS IMPORTANTES ───────────────────────────────────────────
 const roadmapEvents = [
   { date: "18 marzo", title: "Convocatoria", description: "Publicación de convocatoria e inicio de inscripciones", rubrica: "", icon: <CalendarDays size={18} /> },
-  { date: "25 abril", title: "Cierre de inscripciones", description: "Fecha límite para registro de equipos", rubrica: "", icon: <CalendarDays size={18} /> },
+  { date: "30 abril", title: "Cierre de inscripciones", description: "Fecha límite para registro de equipos", rubrica: "", icon: <CalendarDays size={18} /> },
   { date: "2 mayo", title: "Reunión informativa", description: "Reunión informativa de inicio de la competencia", rubrica: "", icon: <CalendarDays size={18} /> },
   { date: "9 mayo", title: "Taller 1 — Introducción a la cohetería", description: "Conceptos fundamentales de la cohetería y física de propulsión", rubrica: "", icon: <FileText size={18} /> },
   { date: "16 mayo", title: "Taller 2 — Construcción de cohetes", description: "Diseño y construcción del cohete hidropropulsado", rubrica: "", icon: <FileText size={18} /> },
@@ -586,6 +607,7 @@ export function HidroChallengePage() {
   return (
     <div style={{ background: "#0A0A0A", minHeight: "100vh", paddingTop: "72px" }}>
       <HeroSection />
+      <LogoSection />
       <CountdownSection />
       <DocumentSection />
       <RoadmapSection />

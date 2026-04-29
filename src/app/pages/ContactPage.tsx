@@ -869,60 +869,42 @@ export function ContactPage() {
                 </p>
               </div>
               <div style={{ position: "relative", zIndex: 1, flexShrink: 0 }}>
-                <div
+                <a
+                  href="https://forms.gle/Ki5o4cTZPp7ogiTB7"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
-                    fontFamily: "'Barlow Condensed', sans-serif",
-                    fontSize: "0.62rem",
-                    letterSpacing: "0.2em",
-                    textTransform: "uppercase",
-                    color: "#666",
-                    marginBottom: "0.5rem",
-                    textAlign: "center",
-                  }}
-                >
-                  Semillero — Universidad del Cauca — 2025
-                </div>
-                <div
-                  style={{
-                    display: "flex",
+                    display: "inline-flex",
                     alignItems: "center",
-                    justifyContent: "center",
-                    gap: "0.5rem",
+                    gap: "0.6rem",
+                    background: "#F5C518",
+                    color: "#000000",
+                    padding: "0.9rem 2rem",
+                    fontFamily: "'Space Grotesk', sans-serif",
+                    fontSize: "0.78rem",
+                    fontWeight: 700,
+                    letterSpacing: "0.12em",
+                    textTransform: "uppercase",
+                    textDecoration: "none",
+                    border: "2px solid #F5C518",
+                    cursor: "pointer",
+                    transition: "all 0.25s",
+                    whiteSpace: "nowrap",
+                  }}
+                  onMouseEnter={(e) => {
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.background = "transparent";
+                    el.style.color = "#F5C518";
+                  }}
+                  onMouseLeave={(e) => {
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.background = "#F5C518";
+                    el.style.color = "#000000";
                   }}
                 >
-                  {/* Small logo */}
-                  <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
-                    <circle cx="24" cy="24" r="22" stroke="#F5C518" strokeWidth="1.2" strokeDasharray="4 3" opacity="0.5" />
-                    <path d="M24 8 L28 20 L24 18 L20 20 Z" stroke="#F5C518" strokeWidth="1.5" fill="none" />
-                    <path d="M20 20 L16 28 L24 26 L32 28 L28 20" stroke="#F5C518" strokeWidth="1.2" fill="none" />
-                    <path d="M19 28 L17 36 L24 34 L31 36 L29 28" stroke="#F5C518" strokeWidth="1" fill="none" opacity="0.7" />
-                    <circle cx="24" cy="18" r="2" stroke="#F5C518" strokeWidth="1" />
-                    <path d="M20 36 C22 40 24 42 24 44 C24 42 26 40 28 36" stroke="#F5C518" strokeWidth="1.2" fill="none" opacity="0.6" />
-                  </svg>
-                  <div>
-                    <div
-                      style={{
-                        fontFamily: "'Special Elite', serif",
-                        color: "#F5C518",
-                        fontSize: "1rem",
-                        lineHeight: 1.1,
-                      }}
-                    >
-                      SIA
-                    </div>
-                    <div
-                      style={{
-                        fontFamily: "'Barlow Condensed', sans-serif",
-                        color: "#666",
-                        fontSize: "0.55rem",
-                        letterSpacing: "0.2em",
-                        textTransform: "uppercase",
-                      }}
-                    >
-                      Semillero de Ingeniería Aeroespacial
-                    </div>
-                  </div>
-                </div>
+                  <ExternalLink size={15} />
+                  Unirme al Semillero
+                </a>
               </div>
             </div>
           </FadeIn>

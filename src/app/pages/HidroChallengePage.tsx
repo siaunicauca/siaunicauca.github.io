@@ -327,23 +327,24 @@ function RoadmapSection() {
 // Sección deshabilitada: era de registro/historial, no de convocatoria
 
 // ─── DOCUMENTO PDF ──────────────────────────────────────────────────────────
+const cardStyle: React.CSSProperties = {
+  background: "rgba(255,255,255,0.03)",
+  border: "1px solid rgba(245,197,24,0.15)",
+  borderRadius: "4px",
+  padding: "2.5rem",
+  textAlign: "center",
+};
+
 function DocumentSection() {
-  // Cambia esta ruta al PDF real de la convocatoria
   const pdfUrl = "https://drive.google.com/file/d/1vC9VLoCPyiqL99c0VgCqMVavsT3RCzub/view?usp=sharing";
 
   return (
     <section style={{ background: "#0A0A0A", padding: "5rem 2rem", position: "relative" }}>
-      <div style={{ maxWidth: "700px", margin: "0 auto", position: "relative", zIndex: 1 }}>
+      <div style={{ maxWidth: "700px", margin: "0 auto", position: "relative", zIndex: 1, display: "flex", flexDirection: "column", gap: "2rem" }}>
+
+        {/* ── Recuadro 1: Convocatoria ── */}
         <FadeIn>
-          <div
-            style={{
-              background: "rgba(255,255,255,0.03)",
-              border: "1px solid rgba(245,197,24,0.15)",
-              borderRadius: "4px",
-              padding: "2.5rem",
-              textAlign: "center",
-            }}
-          >
+          <div style={cardStyle}>
             <div style={{ color: "#F5C518", marginBottom: "1rem" }}>
               <FileText size={40} strokeWidth={1.2} />
             </div>
@@ -442,100 +443,110 @@ function DocumentSection() {
                 Ir al Formulario
               </a>
             </div>
+          </div>
+        </FadeIn>
 
-            {/* Plantillas PDR */}
+        {/* ── Recuadro 2: Plantillas PDR ── */}
+        <FadeIn delay={120}>
+          <div style={cardStyle}>
+            <div style={{ color: "#F5C518", marginBottom: "1rem" }}>
+              <FileText size={40} strokeWidth={1.2} />
+            </div>
             <div
               style={{
-                borderTop: "1px solid rgba(245,197,24,0.1)",
-                marginTop: "1.75rem",
-                paddingTop: "1.5rem",
+                fontFamily: "'Caveat', cursive",
+                color: "rgba(245,197,24,0.4)",
+                fontSize: "0.85rem",
+                marginBottom: "0.5rem",
               }}
             >
-              <div
+              Fig. H6 — Plantillas Oficiales
+            </div>
+            <h3
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontSize: "1.4rem",
+                fontWeight: 700,
+                color: "#FFFFFF",
+                margin: "0 0 0.75rem",
+              }}
+            >
+              Plantillas <span style={{ color: "#F5C518" }}>PDR</span>
+            </h3>
+            <p
+              style={{
+                color: "#AAAAAA",
+                fontSize: "0.9rem",
+                lineHeight: 1.7,
+                maxWidth: "480px",
+                margin: "0 auto 1.5rem",
+              }}
+            >
+              Descarga la plantilla del Reporte de Diseño Preliminar correspondiente a tu categoría. Complétala siguiendo las instrucciones de la guía de misión y entrégala en la fecha indicada en el cronograma.
+            </p>
+            <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
+              <a
+                href="/docs/Plantilla_PDR_Colegios.docx"
+                download
                 style={{
-                  fontFamily: "'Barlow Condensed', sans-serif",
-                  fontSize: "0.65rem",
-                  letterSpacing: "0.22em",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  background: "#F5C518",
+                  color: "#0A0A0A",
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontSize: "0.8rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.1em",
                   textTransform: "uppercase",
-                  color: "#666",
-                  marginBottom: "1rem",
+                  textDecoration: "none",
+                  padding: "0.75rem 2rem",
+                  border: "none",
+                  cursor: "pointer",
+                  transition: "background 0.3s",
+                }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#E8A800")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#F5C518")}
+              >
+                <Download size={16} />
+                PDR Colegios
+              </a>
+              <a
+                href="/docs/Plantilla_PDR_Universidades.docx"
+                download
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  background: "transparent",
+                  color: "#F5C518",
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontSize: "0.8rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  textDecoration: "none",
+                  padding: "0.75rem 2rem",
+                  border: "2px solid #F5C518",
+                  cursor: "pointer",
+                  transition: "all 0.3s",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.background = "#F5C518";
+                  (e.currentTarget as HTMLElement).style.color = "#0A0A0A";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.background = "transparent";
+                  (e.currentTarget as HTMLElement).style.color = "#F5C518";
                 }}
               >
-                Plantillas PDR — Reporte de Diseño Preliminar
-              </div>
-              <div style={{ display: "flex", gap: "0.75rem", justifyContent: "center", flexWrap: "wrap" }}>
-                <a
-                  href="/docs/Plantilla_PDR_Colegios.docx"
-                  download
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.45rem",
-                    background: "rgba(245,197,24,0.08)",
-                    color: "#F5C518",
-                    fontFamily: "'Space Grotesk', sans-serif",
-                    fontSize: "0.75rem",
-                    fontWeight: 600,
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    textDecoration: "none",
-                    padding: "0.6rem 1.25rem",
-                    border: "1px solid rgba(245,197,24,0.3)",
-                    cursor: "pointer",
-                    transition: "all 0.25s",
-                  }}
-                  onMouseEnter={(e) => {
-                    const el = e.currentTarget as HTMLElement;
-                    el.style.background = "rgba(245,197,24,0.18)";
-                    el.style.borderColor = "rgba(245,197,24,0.6)";
-                  }}
-                  onMouseLeave={(e) => {
-                    const el = e.currentTarget as HTMLElement;
-                    el.style.background = "rgba(245,197,24,0.08)";
-                    el.style.borderColor = "rgba(245,197,24,0.3)";
-                  }}
-                >
-                  <Download size={14} />
-                  Plantilla PDR — Colegios
-                </a>
-                <a
-                  href="/docs/Plantilla_PDR_Universidades.docx"
-                  download
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.45rem",
-                    background: "rgba(245,197,24,0.08)",
-                    color: "#F5C518",
-                    fontFamily: "'Space Grotesk', sans-serif",
-                    fontSize: "0.75rem",
-                    fontWeight: 600,
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
-                    textDecoration: "none",
-                    padding: "0.6rem 1.25rem",
-                    border: "1px solid rgba(245,197,24,0.3)",
-                    cursor: "pointer",
-                    transition: "all 0.25s",
-                  }}
-                  onMouseEnter={(e) => {
-                    const el = e.currentTarget as HTMLElement;
-                    el.style.background = "rgba(245,197,24,0.18)";
-                    el.style.borderColor = "rgba(245,197,24,0.6)";
-                  }}
-                  onMouseLeave={(e) => {
-                    const el = e.currentTarget as HTMLElement;
-                    el.style.background = "rgba(245,197,24,0.08)";
-                    el.style.borderColor = "rgba(245,197,24,0.3)";
-                  }}
-                >
-                  <Download size={14} />
-                  Plantilla PDR — Universidades
-                </a>
-              </div>
+                <Download size={16} />
+                PDR Universidades
+              </a>
             </div>
           </div>
         </FadeIn>
+
       </div>
     </section>
   );

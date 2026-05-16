@@ -406,7 +406,7 @@ function DocumentSection() {
                 onMouseLeave={(e) => ((e.target as HTMLElement).style.background = "#F5C518")}
               >
                 <Download size={16} />
-                Descargar PDF
+                Guía de Misión (PDF)
               </a>
               <a
                 href="https://forms.gle/fBARuUodm1MEVrg3A"
@@ -441,6 +441,98 @@ function DocumentSection() {
                 <ExternalLink size={16} />
                 Ir al Formulario
               </a>
+            </div>
+
+            {/* Plantillas PDR */}
+            <div
+              style={{
+                borderTop: "1px solid rgba(245,197,24,0.1)",
+                marginTop: "1.75rem",
+                paddingTop: "1.5rem",
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: "'Barlow Condensed', sans-serif",
+                  fontSize: "0.65rem",
+                  letterSpacing: "0.22em",
+                  textTransform: "uppercase",
+                  color: "#666",
+                  marginBottom: "1rem",
+                }}
+              >
+                Plantillas PDR — Reporte de Diseño Preliminar
+              </div>
+              <div style={{ display: "flex", gap: "0.75rem", justifyContent: "center", flexWrap: "wrap" }}>
+                <a
+                  href="/docs/Plantilla_PDR_Colegios.docx"
+                  download
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.45rem",
+                    background: "rgba(245,197,24,0.08)",
+                    color: "#F5C518",
+                    fontFamily: "'Space Grotesk', sans-serif",
+                    fontSize: "0.75rem",
+                    fontWeight: 600,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    textDecoration: "none",
+                    padding: "0.6rem 1.25rem",
+                    border: "1px solid rgba(245,197,24,0.3)",
+                    cursor: "pointer",
+                    transition: "all 0.25s",
+                  }}
+                  onMouseEnter={(e) => {
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.background = "rgba(245,197,24,0.18)";
+                    el.style.borderColor = "rgba(245,197,24,0.6)";
+                  }}
+                  onMouseLeave={(e) => {
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.background = "rgba(245,197,24,0.08)";
+                    el.style.borderColor = "rgba(245,197,24,0.3)";
+                  }}
+                >
+                  <Download size={14} />
+                  Plantilla PDR — Colegios
+                </a>
+                <a
+                  href="/docs/Plantilla_PDR_Universidades.docx"
+                  download
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "0.45rem",
+                    background: "rgba(245,197,24,0.08)",
+                    color: "#F5C518",
+                    fontFamily: "'Space Grotesk', sans-serif",
+                    fontSize: "0.75rem",
+                    fontWeight: 600,
+                    letterSpacing: "0.08em",
+                    textTransform: "uppercase",
+                    textDecoration: "none",
+                    padding: "0.6rem 1.25rem",
+                    border: "1px solid rgba(245,197,24,0.3)",
+                    cursor: "pointer",
+                    transition: "all 0.25s",
+                  }}
+                  onMouseEnter={(e) => {
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.background = "rgba(245,197,24,0.18)";
+                    el.style.borderColor = "rgba(245,197,24,0.6)";
+                  }}
+                  onMouseLeave={(e) => {
+                    const el = e.currentTarget as HTMLElement;
+                    el.style.background = "rgba(245,197,24,0.08)";
+                    el.style.borderColor = "rgba(245,197,24,0.3)";
+                  }}
+                >
+                  <Download size={14} />
+                  Plantilla PDR — Universidades
+                </a>
+              </div>
             </div>
           </div>
         </FadeIn>

@@ -333,6 +333,11 @@ const cardStyle: React.CSSProperties = {
   borderRadius: "4px",
   padding: "2.5rem",
   textAlign: "center",
+  height: "100%",
+  boxSizing: "border-box",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
 };
 
 function DocumentSection() {
@@ -340,7 +345,7 @@ function DocumentSection() {
 
   return (
     <section style={{ background: "#0A0A0A", padding: "5rem 2rem", position: "relative" }}>
-      <div style={{ maxWidth: "700px", margin: "0 auto", position: "relative", zIndex: 1, display: "flex", flexDirection: "column", gap: "2rem" }}>
+      <div style={{ maxWidth: "960px", margin: "0 auto", position: "relative", zIndex: 1, display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "1.5rem" }} className="doc-grid">
 
         {/* ── Recuadro 1: Convocatoria ── */}
         <FadeIn>
@@ -381,7 +386,7 @@ function DocumentSection() {
             >
               Aquí podrá encontrar la guía de misión con las bases, requisitos técnicos, categorías y la información completa de la competencia. Les sugerimos primero leerla detenidamente antes de pasar a realizar la inscripción de su equipo a través del respectivo formulario.
             </p>
-            <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginTop: "auto" }}>
               <a
                 href={pdfUrl}
                 target="_blank"
@@ -460,7 +465,7 @@ function DocumentSection() {
                 marginBottom: "0.5rem",
               }}
             >
-              Fig. H6 — Fases de Evaluación
+              Fig. H6 — Plantillas Oficiales
             </div>
             <h3
               style={{
@@ -471,7 +476,7 @@ function DocumentSection() {
                 margin: "0 0 0.75rem",
               }}
             >
-              Fases de <span style={{ color: "#F5C518" }}>evaluación</span>
+              Plantillas <span style={{ color: "#F5C518" }}>PDR</span>
             </h3>
             <p
               style={{
@@ -482,38 +487,9 @@ function DocumentSection() {
                 margin: "0 auto 1.5rem",
               }}
             >
-              Es fundamental cumplir con cada fase de evaluación para continuar en la competencia. Descarga la plantilla PDR según tu categoría, complétala siguiendo la guía de misión y envía tu documento antes de la fecha indicada en el cronograma.
+              Descarga la plantilla del Reporte de Diseño Preliminar correspondiente a tu categoría. Complétala siguiendo las instrucciones de la guía de misión y entrégala en la fecha indicada en el cronograma.
             </p>
-            <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginBottom: "0.75rem" }}>
-              <a
-                href="https://forms.gle/qtNqfBAZz33rYkY38"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                  background: "#F5C518",
-                  color: "#0A0A0A",
-                  fontFamily: "'Space Grotesk', sans-serif",
-                  fontSize: "0.8rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  textDecoration: "none",
-                  padding: "0.75rem 2rem",
-                  border: "none",
-                  cursor: "pointer",
-                  transition: "background 0.3s",
-                }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#E8A800")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#F5C518")}
-              >
-                <ExternalLink size={16} />
-                Documento PDR
-              </a>
-            </div>
-            <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginTop: "auto" }}>
               <a
                 href="/docs/Plantilla_PDR_Colegios.docx"
                 download
@@ -576,7 +552,144 @@ function DocumentSection() {
           </div>
         </FadeIn>
 
+        {/* ── Recuadro 3: Fases de evaluación ── */}
+        <FadeIn delay={200}>
+          <div style={cardStyle}>
+            <div style={{ color: "#F5C518", marginBottom: "1rem" }}>
+              <ExternalLink size={40} strokeWidth={1.2} />
+            </div>
+            <div
+              style={{
+                fontFamily: "'Caveat', cursive",
+                color: "rgba(245,197,24,0.4)",
+                fontSize: "0.85rem",
+                marginBottom: "0.5rem",
+              }}
+            >
+              Fig. H7 — Evaluación Fase 1
+            </div>
+            <h3
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontSize: "1.4rem",
+                fontWeight: 700,
+                color: "#FFFFFF",
+                margin: "0 0 0.75rem",
+              }}
+            >
+              Evaluación <span style={{ color: "#F5C518" }}>Fase 1</span>
+            </h3>
+            <p
+              style={{
+                color: "#AAAAAA",
+                fontSize: "0.9rem",
+                lineHeight: 1.7,
+                maxWidth: "480px",
+                margin: "0 auto 1.5rem",
+              }}
+            >
+              Es fundamental cumplir con cada fase de evaluación para continuar en la competencia. Envía tu documento PDR dentro del plazo establecido para avanzar a la siguiente etapa.
+            </p>
+            <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginTop: "auto" }}>
+              <a
+                href="https://forms.gle/qtNqfBAZz33rYkY38"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  background: "#F5C518",
+                  color: "#0A0A0A",
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontSize: "0.8rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  textDecoration: "none",
+                  padding: "0.75rem 2rem",
+                  border: "none",
+                  cursor: "pointer",
+                  transition: "background 0.3s",
+                }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#E8A800")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#F5C518")}
+              >
+                <ExternalLink size={16} />
+                Documento PDR
+              </a>
+            </div>
+          </div>
+        </FadeIn>
+
+        {/* ── Recuadro 4: Evaluación Fase 2 ── */}
+        <FadeIn delay={280}>
+          <div style={cardStyle}>
+            <div style={{ color: "#F5C518", marginBottom: "1rem" }}>
+              <ExternalLink size={40} strokeWidth={1.2} />
+            </div>
+            <div
+              style={{
+                fontFamily: "'Caveat', cursive",
+                color: "rgba(245,197,24,0.4)",
+                fontSize: "0.85rem",
+                marginBottom: "0.5rem",
+              }}
+            >
+              Fig. H8 — Evaluación Fase 2
+            </div>
+            <h3
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontSize: "1.4rem",
+                fontWeight: 700,
+                color: "#FFFFFF",
+                margin: "0 0 0.75rem",
+              }}
+            >
+              Evaluación <span style={{ color: "#F5C518" }}>Fase 2</span>
+            </h3>
+            <p
+              style={{
+                color: "#AAAAAA",
+                fontSize: "0.9rem",
+                lineHeight: 1.7,
+                maxWidth: "480px",
+                margin: "0 auto 1.5rem",
+              }}
+            >
+              La segunda fase de evaluación estará disponible próximamente. Mantente atento al cronograma para no perder los plazos de entrega.
+            </p>
+            <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginTop: "auto" }}>
+              <span
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  background: "transparent",
+                  color: "rgba(245,197,24,0.35)",
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontSize: "0.8rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  padding: "0.75rem 2rem",
+                  border: "2px solid rgba(245,197,24,0.2)",
+                  cursor: "default",
+                }}
+              >
+                Próximamente
+              </span>
+            </div>
+          </div>
+        </FadeIn>
+
       </div>
+      <style>{`
+        @media (max-width: 640px) {
+          .doc-grid { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </section>
   );
 }

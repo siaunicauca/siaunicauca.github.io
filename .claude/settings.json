@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\juan_\\\\Downloads\" | Where-Object { $_.Name -imatch 'ipn' } | Select-Object Name)",
+      "Bash(unzip -l \"WhatsApp Unknown 2026-06-03 at 10.59.51 PM.zip\")",
+      "Bash(mv \"WhatsApp Unknown 2026-06-03 at 10.59.15 PM\" \"EncuentroIngFisicaPopayan\")",
+      "Bash(mv \"6CongresoIngenieriaFisicaPopayan/WhatsApp Image 2026-04-29 at 8.54.38 PM.jpeg\" \"6CongresoIngenieriaFisicaPopayan/posterCoheteMultietapa.jpeg\")",
+      "Bash(mv \"6CongresoIngenieriaFisicaPopayan/WhatsApp Image 2026-04-29 at 8.54.38 PM \\(1\\).jpeg\" \"6CongresoIngenieriaFisicaPopayan/equipoKalaPosteres.jpeg\")",
+      "Bash(mv \"5SimposioMunich/WhatsApp Image 2026-04-29 at 9.00.35 PM.jpeg\" \"5SimposioMunich/posterCoheteAgua.jpeg\")",
+      "Bash(mv \"5SimposioMunich/WhatsApp Image 2026-04-29 at 9.00.35 PM \\(1\\).jpeg\" \"5SimposioMunich/entradaSSEA.jpeg\")"
+    ]
+  }
+}

@@ -460,7 +460,7 @@ function DocumentSection() {
                 marginBottom: "0.5rem",
               }}
             >
-              Fig. H6 — Plantillas Oficiales
+              Fig. H6 — Fases de Evaluación
             </div>
             <h3
               style={{
@@ -471,7 +471,7 @@ function DocumentSection() {
                 margin: "0 0 0.75rem",
               }}
             >
-              Plantillas <span style={{ color: "#F5C518" }}>PDR</span>
+              Fases de <span style={{ color: "#F5C518" }}>evaluación</span>
             </h3>
             <p
               style={{
@@ -482,8 +482,37 @@ function DocumentSection() {
                 margin: "0 auto 1.5rem",
               }}
             >
-              Descarga la plantilla del Reporte de Diseño Preliminar correspondiente a tu categoría. Complétala siguiendo las instrucciones de la guía de misión y entrégala en la fecha indicada en el cronograma.
+              Es fundamental cumplir con cada fase de evaluación para continuar en la competencia. Descarga la plantilla PDR según tu categoría, complétala siguiendo la guía de misión y envía tu documento antes de la fecha indicada en el cronograma.
             </p>
+            <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginBottom: "0.75rem" }}>
+              <a
+                href="https://forms.gle/qtNqfBAZz33rYkY38"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  background: "#F5C518",
+                  color: "#0A0A0A",
+                  fontFamily: "'Space Grotesk', sans-serif",
+                  fontSize: "0.8rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.1em",
+                  textTransform: "uppercase",
+                  textDecoration: "none",
+                  padding: "0.75rem 2rem",
+                  border: "none",
+                  cursor: "pointer",
+                  transition: "background 0.3s",
+                }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#E8A800")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#F5C518")}
+              >
+                <ExternalLink size={16} />
+                Documento PDR
+              </a>
+            </div>
             <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
               <a
                 href="/docs/Plantilla_PDR_Colegios.docx"
@@ -578,8 +607,18 @@ function ExternalLinkSection() {
 
       <div style={{ maxWidth: "700px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
         <FadeIn>
-          <div style={{ color: "#F5C518", marginBottom: "1rem" }}>
-            <ExternalLink size={36} strokeWidth={1.2} />
+          <div style={{ marginBottom: "1.5rem" }}>
+            <img
+              src="/logos/LogoHidroChallengeMx.png"
+              alt="HidroChallenge IPN 2026"
+              style={{
+                width: "clamp(120px, 20vw, 180px)",
+                height: "auto",
+                display: "block",
+                margin: "0 auto",
+                filter: "drop-shadow(0 0 16px rgba(245,197,24,0.15))",
+              }}
+            />
           </div>
           <h3
             style={{

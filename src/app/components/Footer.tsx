@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import { Github, Linkedin, ExternalLink } from "lucide-react";
+import { Github, Linkedin, Instagram, ExternalLink } from "lucide-react";
 
 export function Footer() {
   return (
@@ -163,6 +163,7 @@ export function Footer() {
           </h4>
           <div style={{ display: "flex", gap: "0.75rem", marginBottom: "1.2rem" }}>
             {[
+              { icon: <Instagram size={18} />, label: "Instagram", href: "https://www.instagram.com/siasemillero/" },
               { icon: <Github size={18} />, label: "GitHub", href: "https://github.com/siaunicauca" },
               { icon: <Linkedin size={18} />, label: "LinkedIn", href: "#" },
               { icon: <ExternalLink size={18} />, label: "ResearchGate", href: "#" },
@@ -170,6 +171,8 @@ export function Footer() {
               <a
                 key={social.label}
                 href={social.href}
+                target={social.href.startsWith("http") ? "_blank" : undefined}
+                rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
                 title={social.label}
                 style={{
                   color: "#F5C518",

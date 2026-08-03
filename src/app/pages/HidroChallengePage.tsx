@@ -658,28 +658,36 @@ function DocumentSection() {
                 margin: "0 auto 1.5rem",
               }}
             >
-              La segunda fase de evaluación estará disponible próximamente. Mantente atento al cronograma para no perder los plazos de entrega.
+              Envía tu video de funcionamiento dentro del plazo establecido (14 de agosto) para avanzar a la siguiente etapa de la competencia.
             </p>
             <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginTop: "auto" }}>
-              <span
+              <a
+                href="https://forms.gle/gSXWG9QWurpZ3hVH7"
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "0.5rem",
-                  background: "transparent",
-                  color: "rgba(245,197,24,0.35)",
+                  background: "#F5C518",
+                  color: "#0A0A0A",
                   fontFamily: "'Space Grotesk', sans-serif",
                   fontSize: "0.8rem",
                   fontWeight: 700,
                   letterSpacing: "0.1em",
                   textTransform: "uppercase",
+                  textDecoration: "none",
                   padding: "0.75rem 2rem",
-                  border: "2px solid rgba(245,197,24,0.2)",
-                  cursor: "default",
+                  border: "none",
+                  cursor: "pointer",
+                  transition: "background 0.3s",
                 }}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#E8A800")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#F5C518")}
               >
-                Próximamente
-              </span>
+                <ExternalLink size={16} />
+                Video de Funcionamiento
+              </a>
             </div>
           </div>
         </FadeIn>

@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from "react";
-import { Send, Github, Linkedin, ExternalLink, Mail, MapPin, Clock, MessageSquare } from "lucide-react";
+import { Send, Github, Linkedin, Instagram, ExternalLink, Mail, MapPin, Clock, MessageSquare } from "lucide-react";
 import { StarField } from "../components/StarField";
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
@@ -96,6 +96,19 @@ function DiagonalLines() {
   );
 }
 
+const CONTACT_EMAIL = "siaaerospace@unicauca.edu.co";
+
+const INTEREST_AREAS = [
+  "Aerodinámica",
+  "Propulsión",
+  "Mecánica Orbital",
+  "Materiales",
+  "GNC",
+  "Percepción Remota",
+  "Colaboración",
+  "Otro",
+];
+
 export function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
@@ -103,14 +116,41 @@ export function ContactPage() {
     subject: "",
     message: "",
   });
+  const [interests, setInterests] = useState<string[]>([]);
   const [submitted, setSubmitted] = useState(false);
   const [focused, setFocused] = useState<string | null>(null);
 
+  const toggleInterest = (area: string) => {
+    setInterests((prev) =>
+      prev.includes(area) ? prev.filter((a) => a !== area) : [...prev, area]
+    );
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const subject = formData.subject
+      ? `[Semillero SIA] ${formData.subject}`
+      : `[Semillero SIA] Contacto desde la página web — ${formData.name}`;
+
+    const bodyLines = [
+      `Nombre: ${formData.name}`,
+      `Correo: ${formData.email}`,
+      interests.length ? `Área de interés: ${interests.join(", ")}` : null,
+      "",
+      formData.message,
+    ].filter((line) => line !== null);
+
+    const mailtoUrl = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+
+    window.location.href = mailtoUrl;
+
     setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 4000);
+    setTimeout(() => setSubmitted(false), 6000);
     setFormData({ name: "", email: "", subject: "", message: "" });
+    setInterests([]);
   };
 
   const inputStyle = (field: string): React.CSSProperties => ({
@@ -128,6 +168,12 @@ export function ContactPage() {
   });
 
   const socialLinks = [
+    {
+      icon: <Instagram size={20} />,
+      label: "Instagram",
+      sublabel: "instagram.com/siasemillero",
+      href: "https://www.instagram.com/siasemillero/",
+    },
     {
       icon: <Github size={20} />,
       label: "GitHub",
@@ -316,7 +362,13 @@ export function ContactPage() {
                             lineHeight: 1.5,
                           }}
                         >
-                          {item.value}
+                          {item.label === "Correo Institucional" ? (
+                            <a href={`mailto:${item.value}`} style={{ color: "inherit", textDecoration: "none" }}>
+                              {item.value}
+                            </a>
+                          ) : (
+                            item.value
+                          )}
                         </div>
                       </div>
                     </div>
@@ -349,6 +401,8 @@ export function ContactPage() {
                     <a
                       key={social.label}
                       href={social.href}
+                      target={social.href.startsWith("http") ? "_blank" : undefined}
+                      rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
                       style={{
                         display: "flex",
                         alignItems: "center",
@@ -570,10 +624,15 @@ export function ContactPage() {
                         marginBottom: "0.5rem",
                       }}
                     >
-                      ¡Mensaje enviado!
+                      ¡Casi listo!
                     </h3>
                     <p style={{ color: "#CCCCCC", fontSize: "0.88rem", lineHeight: 1.6 }}>
-                      Nos pondremos en contacto contigo a la brevedad. ¡Gracias por tu interés en el Semillero SIA!
+                      Se abrió tu aplicación de correo con el mensaje ya redactado. Si no se abrió
+                      automáticamente, escríbenos directo a{" "}
+                      <a href={`mailto:${CONTACT_EMAIL}`} style={{ color: "#F5C518" }}>
+                        {CONTACT_EMAIL}
+                      </a>
+                      .
                     </p>
                   </div>
                 ) : (
@@ -711,16 +770,7 @@ export function ContactPage() {
                         Área de Interés
                       </div>
                       <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
-                        {[
-                          "Aerodinámica",
-                          "Propulsión",
-                          "Mecánica Orbital",
-                          "Materiales",
-                          "GNC",
-                          "Percepción Remota",
-                          "Colaboración",
-                          "Otro",
-                        ].map((area) => (
+                        {INTEREST_AREAS.map((area) => (
                           <label
                             key={area}
                             style={{
@@ -749,6 +799,8 @@ export function ContactPage() {
                           >
                             <input
                               type="checkbox"
+                              checked={interests.includes(area)}
+                              onChange={() => toggleInterest(area)}
                               style={{ accentColor: "#F5C518", width: "12px", height: "12px" }}
                             />
                             {area}

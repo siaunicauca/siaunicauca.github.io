@@ -256,7 +256,7 @@ function HeroSection() {
           >
             {[
               { num: "12", label: "Investigadores" },
-              { num: "8", label: "Proyectos Activos" },
+              { num: "9", label: "Proyectos" },
               { num: "15", label: "Publicaciones" },
             ].map((s) => (
               <div key={s.label}>
@@ -466,7 +466,7 @@ function AboutSection() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
             {[
               { num: "12", label: "Investigadores Activos", icon: "" },
-              { num: "8", label: "Proyectos en Curso", icon: "" },
+              { num: "9", label: "Proyectos", icon: "" },
               { num: "15", label: "Publicaciones", icon: "" },
               { num: "6", label: "Años de Historia", icon: "" },
             ].map((stat) => (

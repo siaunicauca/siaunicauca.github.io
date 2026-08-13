@@ -6,7 +6,7 @@ const navLinks = [
   { href: "/", label: "Inicio" },
   { href: "/investigacion", label: "Investigación" },
   // { href: "/publicaciones", label: "Publicaciones" }, // Desactivado temporalmente
-  // { href: "/proyectos", label: "Proyectos" }, // Desactivado temporalmente
+  { href: "/proyectos", label: "Proyectos" },
   { href: "/equipo", label: "Equipo" },
   { href: "/noticias", label: "Noticias" },
   { href: "/contacto", label: "Contacto" },

@@ -341,7 +341,7 @@ const cardStyle: React.CSSProperties = {
 };
 
 function DocumentSection() {
-  const pdfUrl = "https://drive.google.com/file/d/1vC9VLoCPyiqL99c0VgCqMVavsT3RCzub/view?usp=sharing";
+  const pdfUrl = "https://drive.google.com/file/d/1GQI0jBxce5MTyu6GAyzjIICtJ8Or_B7n/view?usp=sharing";
 
   return (
     <section style={{ background: "#0A0A0A", padding: "5rem 2rem", position: "relative" }}>

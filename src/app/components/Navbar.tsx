@@ -5,8 +5,9 @@ import { Menu, X } from "lucide-react";
 const navLinks = [
   { href: "/", label: "Inicio" },
   { href: "/investigacion", label: "Investigación" },
-  // { href: "/publicaciones", label: "Publicaciones" }, // Desactivado temporalmente
   { href: "/proyectos", label: "Proyectos" },
+  { href: "/publicaciones", label: "Publicaciones" },
+  { href: "/ponencias", label: "Ponencias" },
   { href: "/equipo", label: "Equipo" },
   { href: "/noticias", label: "Noticias" },
   { href: "/contacto", label: "Contacto" },
@@ -105,12 +106,13 @@ export function Navbar() {
                 style={{
                   textDecoration: "none",
                   fontFamily: "'Space Grotesk', sans-serif",
-                  fontSize: "0.75rem",
+                  fontSize: "0.7rem",
                   fontWeight: 500,
-                  letterSpacing: "0.12em",
+                  letterSpacing: "0.09em",
                   textTransform: "uppercase",
                   color: isActive ? "#F5C518" : "#CCCCCC",
-                  padding: "0.4rem 0.75rem",
+                  padding: "0.4rem 0.55rem",
+                  whiteSpace: "nowrap",
                   borderBottom: isActive ? "2px solid #F5C518" : "2px solid transparent",
                   transition: "all 0.25s ease",
                   paddingBottom: "0.3rem",
@@ -188,7 +190,7 @@ export function Navbar() {
       )}
 
       <style>{`
-        @media (max-width: 768px) {
+        @media (max-width: 1080px) {
           .hidden-mobile { display: none !important; }
           .mobile-menu-btn { display: block !important; }
         }

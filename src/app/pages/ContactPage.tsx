@@ -27,7 +27,7 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   );
 }
 
-// Large faint AD ASTRA watermark
+// Large faint SIA watermark
 function WatermarkText() {
   return (
     <div
@@ -494,7 +494,7 @@ export function ContactPage() {
                     marginTop: "0.5rem",
                   }}
                 >
-                  "Per aspera ad astra — A través de las dificultades hacia las estrellas."
+                  "Descubre el mundo aeroespacial."
                 </div>
                 <div
                   style={{

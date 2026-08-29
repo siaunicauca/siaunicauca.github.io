@@ -288,7 +288,7 @@ const projects: Project[] = [
   },
   {
     id: 9,
-    title: "Astrek: Rover con Navegación Autónoma",    category: "Robótica",
+    title: "Astrek: Rover con Navegación Autónoma",    category: "Rovers",
     fig: "Fig. 3i",
     images: [
       { src: astrek_Rover, alt: "Equipo Astrek con el rover y el certificado del ENMICE 2025" },
@@ -320,6 +320,198 @@ function LogoPanel() {
       }}
     >
       <img src={logoSia} alt="Semillero SIA" style={{ width: "88px", opacity: 0.5 }} />
+    </div>
+  );
+}
+
+/** Carrusel deslizante de fotografías para la tarjeta de proyecto. */
+function ProjectSlider({
+  images,
+  paused,
+  onOpen,
+}: {
+  images: { src: string; alt: string }[];
+  paused: boolean;
+  onOpen: (index: number) => void;
+}) {
+  const [index, setIndex] = useState(0);
+  const touchStartX = useRef<number | null>(null);
+  const total = images.length;
+
+  useEffect(() => {
+    if (paused || total < 2) return;
+    const timer = setInterval(() => setIndex((i) => (i + 1) % total), 4500);
+    return () => clearInterval(timer);
+  }, [paused, total]);
+
+  if (total === 0) {
+    return (
+      <div style={{ height: "220px", overflow: "hidden" }}>
+        <LogoPanel />
+      </div>
+    );
+  }
+
+  const go = (next: number) => setIndex(((next % total) + total) % total);
+
+  const arrowStyle: React.CSSProperties = {
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    width: "32px",
+    height: "42px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    background: "rgba(10,10,10,0.72)",
+    border: "1px solid rgba(245,197,24,0.28)",
+    color: "#F5C518",
+    cursor: "pointer",
+    padding: 0,
+    zIndex: 3,
+    transition: "background 0.2s, opacity 0.25s",
+  };
+
+  return (
+    <div
+      style={{ position: "relative", height: "220px", overflow: "hidden" }}
+      onTouchStart={(e) => {
+        touchStartX.current = e.touches[0].clientX;
+      }}
+      onTouchEnd={(e) => {
+        if (touchStartX.current === null) return;
+        const dx = e.changedTouches[0].clientX - touchStartX.current;
+        if (Math.abs(dx) > 40) go(dx < 0 ? index + 1 : index - 1);
+        touchStartX.current = null;
+      }}
+    >
+      {/* Pista deslizante */}
+      <div
+        onClick={() => onOpen(index)}
+        style={{
+          display: "flex",
+          height: "100%",
+          width: `${total * 100}%`,
+          transform: `translateX(-${(index * 100) / total}%)`,
+          transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
+          cursor: "zoom-in",
+        }}
+      >
+        {images.map((img, i) => (
+          <img
+            key={`${img.src}-${i}`}
+            src={img.src}
+            alt={img.alt}
+            style={{
+              width: `${100 / total}%`,
+              height: "100%",
+              flexShrink: 0,
+              objectFit: "cover",
+              filter: "brightness(0.62) saturate(0.85)",
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Degradado inferior */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: 0,
+          left: 0,
+          right: 0,
+          height: "80px",
+          background: "linear-gradient(transparent, rgba(17,17,17,0.98))",
+          pointerEvents: "none",
+        }}
+      />
+
+      {/* Flechas */}
+      {total > 1 && (
+        <>
+          <button
+            aria-label="Foto anterior"
+            onClick={(e) => {
+              e.stopPropagation();
+              go(index - 1);
+            }}
+            style={{ ...arrowStyle, left: 0 }}
+            onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "rgba(245,197,24,0.9)")}
+            onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "rgba(10,10,10,0.72)")}
+          >
+            <ChevronLeft size={16} />
+          </button>
+          <button
+            aria-label="Foto siguiente"
+            onClick={(e) => {
+              e.stopPropagation();
+              go(index + 1);
+            }}
+            style={{ ...arrowStyle, right: 0 }}
+            onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "rgba(245,197,24,0.9)")}
+            onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "rgba(10,10,10,0.72)")}
+          >
+            <ChevronRight size={16} />
+          </button>
+        </>
+      )}
+
+      {/* Indicadores */}
+      {total > 1 && (
+        <div
+          style={{
+            position: "absolute",
+            bottom: "0.9rem",
+            left: "1rem",
+            display: "flex",
+            gap: "0.3rem",
+            zIndex: 3,
+          }}
+        >
+          {images.map((_, i) => (
+            <button
+              key={i}
+              aria-label={`Ir a la foto ${i + 1}`}
+              onClick={(e) => {
+                e.stopPropagation();
+                go(i);
+              }}
+              style={{
+                width: i === index ? "18px" : "8px",
+                height: "3px",
+                padding: 0,
+                border: "none",
+                cursor: "pointer",
+                background: i === index ? "#F5C518" : "rgba(255,255,255,0.35)",
+                transition: "all 0.3s ease",
+              }}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Contador */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "0.75rem",
+          right: "1rem",
+          background: "rgba(10,10,10,0.8)",
+          border: "1px solid rgba(245,197,24,0.2)",
+          color: "#F5C518",
+          fontFamily: "'Space Grotesk', sans-serif",
+          fontSize: "0.6rem",
+          letterSpacing: "0.1em",
+          padding: "0.25rem 0.5rem",
+          display: "flex",
+          alignItems: "center",
+          gap: "0.35rem",
+          zIndex: 3,
+          pointerEvents: "none",
+        }}
+      >
+        <Camera size={11} /> {index + 1} / {total}
+      </div>
     </div>
   );
 }
@@ -473,6 +665,40 @@ function Lightbox({
           {index + 1} / {total}
         </div>
       </div>
+
+      {/* Tira de miniaturas */}
+      {total > 1 && (
+        <div
+          onClick={(e) => e.stopPropagation()}
+          style={{
+            display: "flex",
+            gap: "0.5rem",
+            marginTop: "1.25rem",
+            maxWidth: "100%",
+            overflowX: "auto",
+            padding: "0 0.25rem 0.25rem",
+          }}
+        >
+          {project.images.map((img, i) => (
+            <img
+              key={`${img.src}-${i}`}
+              src={img.src}
+              alt={img.alt}
+              onClick={() => onNavigate(i)}
+              style={{
+                height: "56px",
+                width: "80px",
+                flexShrink: 0,
+                objectFit: "cover",
+                cursor: "pointer",
+                border: i === index ? "2px solid #F5C518" : "2px solid transparent",
+                opacity: i === index ? 1 : 0.5,
+                transition: "opacity 0.2s, border-color 0.2s",
+              }}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -521,7 +747,7 @@ export function ProjectsPage() {
             <span style={{ color: "#F5C518" }}> PROYECTOS</span>
           </h1>
           <p style={{ color: "#CCCCCC", fontSize: "1rem", lineHeight: 1.8, maxWidth: "620px", margin: "0 auto" }}>
-            Cohetería experimental, satélites enlatados, aeronaves, robótica y divulgación:
+            Cohetería experimental, satélites enlatados, aeronaves, rovers y divulgación:
             los proyectos del semillero y su participación en competencias nacionales e internacionales.
           </p>
         </div>
@@ -539,7 +765,6 @@ export function ProjectsPage() {
         >
           {projects.map((project, i) => {
             const isHovered = hoveredCard === project.id;
-            const cover = project.images[0];
             return (
               <FadeIn key={project.id} delay={i * 80}>
                 <div
@@ -557,52 +782,12 @@ export function ProjectsPage() {
                     flexDirection: "column",
                   }}
                 >
-                  {/* Image */}
-                  <div
-                    onClick={cover ? () => setGallery({ projectId: project.id, index: 0 }) : undefined}
-                    style={{
-                      position: "relative",
-                      height: "220px",
-                      overflow: "hidden",
-                      cursor: cover ? "pointer" : "default",
-                    }}
-                  >
-                    {cover ? (
-                      <img
-                        src={cover.src}
-                        alt={cover.alt}
-                        style={{
-                          width: "100%",
-                          height: "100%",
-                          objectFit: "cover",
-                          filter: "brightness(0.6) saturate(0.8)",
-                          transition: "transform 0.4s ease",
-                          transform: isHovered ? "scale(1.04)" : "scale(1)",
-                        }}
-                      />
-                    ) : (
-                      <LogoPanel />
-                    )}
-                    {/* Yellow hover overlay */}
-                    <div
-                      style={{
-                        position: "absolute",
-                        inset: 0,
-                        background: "rgba(245,197,24,0.08)",
-                        opacity: isHovered ? 1 : 0,
-                        transition: "opacity 0.3s",
-                      }}
-                    />
-                    {/* Gradient */}
-                    <div
-                      style={{
-                        position: "absolute",
-                        bottom: 0,
-                        left: 0,
-                        right: 0,
-                        height: "80px",
-                        background: "linear-gradient(transparent, rgba(17,17,17,0.98))",
-                      }}
+                  {/* Carrusel de fotos */}
+                  <div style={{ position: "relative" }}>
+                    <ProjectSlider
+                      images={project.images}
+                      paused={isHovered}
+                      onOpen={(index) => setGallery({ projectId: project.id, index })}
                     />
                     {/* Category */}
                     <div
@@ -618,33 +803,12 @@ export function ProjectsPage() {
                         letterSpacing: "0.15em",
                         textTransform: "uppercase",
                         padding: "0.25rem 0.6rem",
+                        zIndex: 3,
+                        pointerEvents: "none",
                       }}
                     >
                       {project.category}
                     </div>
-                    {/* Photo counter */}
-                    {project.images.length > 0 && (
-                      <div
-                        style={{
-                          position: "absolute",
-                          bottom: "0.9rem",
-                          right: "1rem",
-                          background: "rgba(10,10,10,0.8)",
-                          border: "1px solid rgba(245,197,24,0.2)",
-                          color: isHovered ? "#F5C518" : "#999",
-                          fontFamily: "'Space Grotesk', sans-serif",
-                          fontSize: "0.6rem",
-                          letterSpacing: "0.1em",
-                          padding: "0.25rem 0.5rem",
-                          display: "flex",
-                          alignItems: "center",
-                          gap: "0.35rem",
-                          transition: "color 0.3s",
-                        }}
-                      >
-                        <Camera size={11} /> {project.images.length}
-                      </div>
-                    )}
                   </div>
 
                   {/* Content */}

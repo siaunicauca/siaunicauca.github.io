@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from "react";
-import { FileText, ExternalLink, Download, Filter } from "lucide-react";
+import { FileText, ExternalLink, Filter } from "lucide-react";
 import { StarField } from "../components/StarField";
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
@@ -27,89 +27,49 @@ function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
   );
 }
 
-type PubType = "Todos" | "Conferencias" | "Journals" | "Tesis";
+type PubType = "Todos" | "Conferencias" | "Tesis";
 
-const publications = [
+interface Publication {
+  year: string;
+  title: string;
+  authors: string;
+  venue: string;
+  type: Exclude<PubType, "Todos">;
+  doi?: string;
+  url?: string;
+  abstract?: string;
+}
+
+const SSEA_VENUE =
+  "5.º Simposio sobre Actividades Educativas Espaciales (SSEA 2026) — Technische Universität München, Múnich, Alemania";
+
+const publications: Publication[] = [
   {
-    year: "2025",
-    title: "Computational Analysis of Laminar-Turbulent Transition over NACA 4412 Airfoil at Low Reynolds Numbers",
-    authors: "García, L., Rodríguez, M., Pérez, A.",
-    venue: "AIAA SciTech Forum 2025",
-    type: "Conferencias" as PubType,
-    doi: "10.2514/6.2025-1234",
-    abstract: "This paper presents high-fidelity CFD simulations of the laminar-turbulent transition phenomenon over a NACA 4412 airfoil.",
+    year: "2026",
+    title: "Design, Simulation, and Experimental Validation of a Multi-Stage Water-Propelled Rocket",
+    authors: "Semillero de Ingeniería Aeroespacial SIA — Universidad del Cauca",
+    venue: SSEA_VENUE,
+    type: "Conferencias",
+    url: "https://mediatum.ub.tum.de/1857970?show_id=1857636",
+    abstract:
+      "Diseño conceptual, simulación y validación experimental de un cohete hidropropulsado multietapa desarrollado en el semillero, presentado como póster científico en el V Simposio SSEA.",
   },
   {
-    year: "2025",
-    title: "Design and Characterization of a Hybrid Rocket Motor for CubeSat Deorbit Applications",
-    authors: "Martínez, C., López, J., Vargas, D.",
-    venue: "Journal of Propulsion and Power, Vol. 41, No. 2",
-    type: "Journals" as PubType,
-    doi: "10.2514/1.B38921",
+    year: "2026",
+    title: "Robotics Fun: Learning STEM through the Play",
+    authors: "Semillero de Ingeniería Aeroespacial SIA — Universidad del Cauca",
+    venue: SSEA_VENUE,
+    type: "Conferencias",
+    url: "https://mediatum.ub.tum.de/1857970?show_id=1857605",
+    abstract:
+      "Propuesta pedagógica para el aprendizaje de las áreas STEM a través de actividades robóticas lúdicas, presentada como ponencia oral en el V Simposio SSEA.",
   },
   {
-    year: "2024",
-    title: "Análisis de Perturbaciones Orbitales para Constelaciones de Pequeños Satélites en LEO",
-    authors: "Torres, F., Gómez, S.",
-    venue: "IX Congreso Colombiano de Astronomía y Astrofísica",
-    type: "Conferencias" as PubType,
-    doi: "10.xxxx/cacao2024-089",
-  },
-  {
-    year: "2024",
-    title: "Multi-Fidelity Aerodynamic Shape Optimization Using Surrogate Models",
-    authors: "Pérez, A., García, L., Rivera, K.",
-    venue: "Aerospace Science and Technology, Vol. 145",
-    type: "Journals" as PubType,
-    doi: "10.1016/j.ast.2024.108876",
-  },
-  {
-    year: "2024",
-    title: "Diseño e Implementación de un Sistema ADCS de Bajo Costo para CubeSat 1U",
-    authors: "López, J.",
-    venue: "Tesis de Grado — Ingeniería Aeronáutica",
-    type: "Tesis" as PubType,
-    doi: "",
-  },
-  {
-    year: "2024",
-    title: "Fatigue Characterization of Carbon Fiber Reinforced Polymer Laminates for Aerospace Structures",
-    authors: "Vargas, D., Martínez, C., Roa, M.",
-    venue: "Composites Part B: Engineering, Vol. 270",
-    type: "Journals" as PubType,
-    doi: "10.1016/j.compositesb.2024.111xxx",
-  },
-  {
-    year: "2023",
-    title: "Open-Source CFD Validation Campaign for Low-Speed Wing Aerodynamics",
-    authors: "García, L., Torres, F., Pérez, A.",
-    venue: "Latin American Journal of Aeronautical Engineering",
-    type: "Journals" as PubType,
-    doi: "10.xxxx/lajae.2023.045",
-  },
-  {
-    year: "2023",
-    title: "Estimación de Actitud Usando Filtro de Kalman Extendido en Plataforma de Bajo Costo",
-    authors: "Gómez, S., López, J.",
-    venue: "VII Simposio de Robótica e Ingeniería de Sistemas — CONIA 2023",
-    type: "Conferencias" as PubType,
-    doi: "",
-  },
-  {
-    year: "2023",
-    title: "Evaluación de Algoritmos de Machine Learning para Clasificación de Cobertura Terrestre con Imágenes Sentinel-2",
-    authors: "Rivera, K., Torres, F.",
-    venue: "Tesis de Maestría — Ingeniería de Sistemas",
-    type: "Tesis" as PubType,
-    doi: "",
-  },
-  {
-    year: "2022",
-    title: "Preliminary Design of a Single-Stage Sounding Rocket for Atmospheric Research",
-    authors: "Rodríguez, M., Martínez, C., Vargas, D.",
-    venue: "IAC 2022 — International Astronautical Congress",
-    type: "Conferencias" as PubType,
-    doi: "10.xxxx/iac-22-b4.5.5.x72263",
+    year: "2020",
+    title: "Diseño Conceptual y Preliminar de un Vehículo Aéreo No Tripulado para uso Agrícola",
+    authors: "José Luis Figueroa Medicis, María Edith Montenegro Gutiérrez",
+    venue: "Tesis de pregrado — Ingeniería Física, Universidad del Cauca",
+    type: "Tesis",
   },
 ];
 
@@ -117,7 +77,7 @@ export function PublicationsPage() {
   const [activeFilter, setActiveFilter] = useState<PubType>("Todos");
   const [hoveredRow, setHoveredRow] = useState<number | null>(null);
 
-  const filters: PubType[] = ["Todos", "Conferencias", "Journals", "Tesis"];
+  const filters: PubType[] = ["Todos", "Conferencias", "Tesis"];
   const filtered = activeFilter === "Todos"
     ? publications
     : publications.filter((p) => p.type === activeFilter);
@@ -143,7 +103,7 @@ export function PublicationsPage() {
               marginBottom: "0.75rem",
             }}
           >
-            Fig. 2 — Registro Bibliográfico · Actualizado Feb 2025
+            Fig. 2 — Registro Bibliográfico · Semillero SIA
           </div>
           <h1
             style={{
@@ -160,8 +120,8 @@ export function PublicationsPage() {
             <span style={{ color: "#F5C518" }}> Y PAPERS</span>
           </h1>
           <p style={{ color: "#CCCCCC", fontSize: "1rem", lineHeight: 1.8, maxWidth: "580px", margin: "0 auto" }}>
-            Producción científica del semillero en journals internacionales, 
-            conferencias especializadas y trabajos de grado.
+            Producción científica del semillero: artículos presentados en
+            conferencias internacionales y trabajos de grado.
           </p>
         </div>
       </div>
@@ -173,7 +133,7 @@ export function PublicationsPage() {
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(4, 1fr)",
+              gridTemplateColumns: "repeat(3, 1fr)",
               gap: "1px",
               background: "rgba(245,197,24,0.1)",
               marginBottom: "3rem",
@@ -181,10 +141,9 @@ export function PublicationsPage() {
             className="pub-stats"
           >
             {[
-              { num: "15", label: "Total Publicaciones" },
-              { num: "4", label: "Journals Internacionales" },
-              { num: "6", label: "Conferencias" },
-              { num: "3", label: "Tesis" },
+              { num: "2", label: "Publicaciones" },
+              { num: "1", label: "Tesis de Grado" },
+              { num: "2026", label: "Última Publicación" },
             ].map((s) => (
               <div
                 key={s.label}
@@ -296,17 +255,10 @@ export function PublicationsPage() {
                     <span
                       style={{
                         background:
-                          pub.type === "Journals"
-                            ? "rgba(245,197,24,0.15)"
-                            : pub.type === "Conferencias"
+                          pub.type === "Conferencias"
                             ? "rgba(100,180,255,0.12)"
                             : "rgba(200,100,255,0.12)",
-                        color:
-                          pub.type === "Journals"
-                            ? "#F5C518"
-                            : pub.type === "Conferencias"
-                            ? "#80c8ff"
-                            : "#cc80ff",
+                        color: pub.type === "Conferencias" ? "#80c8ff" : "#cc80ff",
                         fontFamily: "'Space Grotesk', sans-serif",
                         fontSize: "0.58rem",
                         fontWeight: 700,
@@ -353,6 +305,19 @@ export function PublicationsPage() {
                   >
                     {pub.venue}
                   </div>
+                  {pub.abstract && (
+                    <p
+                      style={{
+                        color: "#999",
+                        fontSize: "0.82rem",
+                        lineHeight: 1.7,
+                        margin: "0.75rem 0 0",
+                        maxWidth: "62ch",
+                      }}
+                    >
+                      {pub.abstract}
+                    </p>
+                  )}
                   {pub.doi && (
                     <div
                       style={{
@@ -369,9 +334,9 @@ export function PublicationsPage() {
 
                 {/* Actions */}
                 <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", flexShrink: 0 }}>
-                  {pub.doi ? (
+                  {pub.doi || pub.url ? (
                     <a
-                      href={`https://doi.org/${pub.doi}`}
+                      href={pub.doi ? `https://doi.org/${pub.doi}` : pub.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{
@@ -400,7 +365,7 @@ export function PublicationsPage() {
                         el.style.color = "#F5C518";
                       }}
                     >
-                      <ExternalLink size={11} /> DOI
+                      <ExternalLink size={11} /> {pub.doi ? "DOI" : "Ver publicación"}
                     </a>
                   ) : (
                     <button
@@ -455,9 +420,9 @@ export function PublicationsPage() {
                 Nota bibliográfica — Fig. 2.1
               </div>
               <p style={{ color: "#888", fontSize: "0.82rem", margin: 0, lineHeight: 1.6 }}>
-                Para solicitar copias de preprints o reportes técnicos, contacte directamente a los autores 
-                o escriba a nuestro correo institucional. Las publicaciones con DOI están disponibles en 
-                las plataformas de los editores respectivos.
+                Para solicitar copias de preprints, pósteres o reportes técnicos, escriba a nuestro correo
+                institucional. Los trabajos presentados en el V Simposio SSEA 2026 están disponibles en el
+                repositorio mediaTUM de la Technische Universität München.
               </p>
             </div>
           </div>
@@ -466,10 +431,10 @@ export function PublicationsPage() {
 
       <style>{`
         .pub-stats {
-          grid-template-columns: repeat(4, 1fr);
+          grid-template-columns: repeat(3, 1fr);
         }
         @media (max-width: 600px) {
-          .pub-stats { grid-template-columns: repeat(2, 1fr) !important; }
+          .pub-stats { grid-template-columns: 1fr !important; }
           .pub-row { grid-template-columns: 1fr !important; gap: 0.5rem !important; }
         }
       `}</style>

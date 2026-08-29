@@ -1,5 +1,5 @@
 import { useRef, useEffect, useState } from "react";
-import { Wind, Satellite, Layers, Cpu } from "lucide-react";
+import { Wind, Satellite, Layers, Cpu, ExternalLink } from "lucide-react";
 import { StarField } from "../components/StarField";
 import { SectionHeader } from "../components/SectionHeader";
 
@@ -175,6 +175,88 @@ export function ResearchPage() {
 
       {/* Research cards */}
       <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "5rem 2rem" }}>
+        {/* Grupo de investigación SIDICO */}
+        <FadeIn>
+          <a
+            href="https://scienti.minciencias.gov.co/gruplac/jsp/visualiza/visualizagr.jsp?nro=00000000010009"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: "1.5rem",
+              flexWrap: "wrap",
+              background: "#111111",
+              border: "1px solid rgba(245,197,24,0.25)",
+              borderLeft: "4px solid #F5C518",
+              padding: "1.6rem 2rem",
+              marginBottom: "3rem",
+              textDecoration: "none",
+              transition: "all 0.3s ease",
+            }}
+            onMouseEnter={(e) => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.background = "rgba(245,197,24,0.07)";
+              el.style.borderColor = "rgba(245,197,24,0.55)";
+              el.style.borderLeftColor = "#F5C518";
+              el.style.boxShadow = "0 8px 32px rgba(245,197,24,0.1)";
+            }}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget as HTMLElement;
+              el.style.background = "#111111";
+              el.style.borderColor = "rgba(245,197,24,0.25)";
+              el.style.borderLeftColor = "#F5C518";
+              el.style.boxShadow = "none";
+            }}
+          >
+            <div style={{ minWidth: 0 }}>
+              <div
+                style={{
+                  fontFamily: "'Barlow Condensed', sans-serif",
+                  fontSize: "0.65rem",
+                  letterSpacing: "0.22em",
+                  textTransform: "uppercase",
+                  color: "#F5C518",
+                  marginBottom: "0.45rem",
+                }}
+              >
+                Grupo al que estamos adscritos · GrupLAC — Minciencias
+              </div>
+              <div
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontSize: "clamp(1rem, 2vw, 1.25rem)",
+                  fontWeight: 700,
+                  color: "#FFFFFF",
+                  lineHeight: 1.35,
+                }}
+              >
+                Grupo de investigación en sistemas dinámicos, instrumentación y control — SIDICO
+              </div>
+            </div>
+            <span
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                color: "#F5C518",
+                fontFamily: "'Space Grotesk', sans-serif",
+                fontSize: "0.72rem",
+                fontWeight: 600,
+                letterSpacing: "0.12em",
+                textTransform: "uppercase",
+                border: "1px solid rgba(245,197,24,0.4)",
+                padding: "0.6rem 1.1rem",
+                flexShrink: 0,
+                whiteSpace: "nowrap",
+              }}
+            >
+              Ver GrupLAC <ExternalLink size={13} />
+            </span>
+          </a>
+        </FadeIn>
+
         <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "2rem" }}>
           {researchAreas.map((area, i) => (
             <FadeIn key={area.title} delay={i * 80}>

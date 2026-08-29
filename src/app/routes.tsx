@@ -4,6 +4,7 @@ import { HomePage } from "./pages/HomePage";
 import { ResearchPage } from "./pages/ResearchPage";
 import { PublicationsPage } from "./pages/PublicationsPage";
 import { ProjectsPage } from "./pages/ProjectsPage";
+import { PresentationsPage } from "./pages/PresentationsPage";
 import { TeamPage } from "./pages/TeamPage";
 import { NewsPage } from "./pages/NewsPage";
 import { ContactPage } from "./pages/ContactPage";
@@ -22,6 +23,7 @@ export const router = createBrowserRouter(
         { path: "investigacion", Component: ResearchPage },
         { path: "publicaciones", Component: PublicationsPage },
         { path: "proyectos", Component: ProjectsPage },
+        { path: "ponencias", Component: PresentationsPage },
         { path: "equipo", Component: TeamPage },
         { path: "noticias", Component: NewsPage },
         { path: "noticias/presentacion-oficial-sia-2025", Component: NoticiaPresentacionSIA },

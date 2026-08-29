@@ -58,7 +58,7 @@ export function Footer() {
               marginBottom: "1rem",
             }}
           >
-            Hacia las Estrellas ✦
+            Descubre el mundo aeroespacial ✦
           </div>
           <p
             style={{
@@ -90,8 +90,9 @@ export function Footer() {
             {[
               { to: "/", label: "Inicio" },
               { to: "/investigacion", label: "Investigación" },
-              { to: "/publicaciones", label: "Publicaciones" },
               { to: "/proyectos", label: "Proyectos" },
+              { to: "/publicaciones", label: "Publicaciones y Papers" },
+              { to: "/ponencias", label: "Ponencias" },
               { to: "/equipo", label: "Equipo" },
               { to: "/noticias", label: "Noticias" },
               { to: "/contacto", label: "Contacto" },
@@ -131,15 +132,14 @@ export function Footer() {
           </h4>
           <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
             {[
-              "Aerodinámica Computacional",
-              "Propulsión Aeroespacial",
-              "Mecánica Orbital",
-              "Materiales Aeroespaciales",
-              "Sistemas de Control",
+              "Diseño, Construcción y Simulación de Sistemas Aeroespaciales",
+              "Inteligencia Artificial y Sistemas Dinámicos en Aeroespacial",
+              "Automatización y Control de Procesos Aeroespaciales",
+              "Instrumentación y Sensores para el Sector Aeroespacial",
             ].map((area) => (
               <span
                 key={area}
-                style={{ color: "#666", fontSize: "0.82rem", fontFamily: "'Inter', sans-serif" }}
+                style={{ color: "#666", fontSize: "0.8rem", lineHeight: 1.5, fontFamily: "'Inter', sans-serif" }}
               >
                 {area}
               </span>

@@ -158,7 +158,7 @@ function HeroSection() {
               letterSpacing: "0.02em",
             }}
           >
-            Ad Astra — Hacia las Estrellas ✦
+            Descubre el mundo aeroespacial ✦
           </div>
 
           <p
@@ -256,8 +256,8 @@ function HeroSection() {
           >
             {[
               { num: "12", label: "Investigadores" },
-              { num: "9", label: "Proyectos" },
-              { num: "15", label: "Publicaciones" },
+              { num: "2", label: "Proyectos" },
+              { num: "2", label: "Publicaciones" },
             ].map((s) => (
               <div key={s.label}>
                 <div
@@ -466,8 +466,8 @@ function AboutSection() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1.5rem" }}>
             {[
               { num: "12", label: "Investigadores Activos", icon: "" },
-              { num: "9", label: "Proyectos", icon: "" },
-              { num: "15", label: "Publicaciones", icon: "" },
+              { num: "2", label: "Proyectos", icon: "" },
+              { num: "2", label: "Publicaciones", icon: "" },
               { num: "6", label: "Años de Historia", icon: "" },
             ].map((stat) => (
               <div

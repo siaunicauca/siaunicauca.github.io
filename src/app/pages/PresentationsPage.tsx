@@ -173,9 +173,11 @@ function ConferenciasList() {
   return (
     <section style={{ background: "#0A0A0A", padding: "4rem 2rem 6rem" }}>
       <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-        {/* Conference cards */}
+        {/* Conference cards — `conferences` va en orden cronológico y aquí se
+            invierte para mostrar primero la más reciente. El número de la
+            tarjeta conserva el orden cronológico del evento. */}
         <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-          {conferences.map((conf, i) => (
+          {[...conferences].reverse().map((conf, i) => (
             <FadeIn key={conf.id} delay={i * 100}>
               <div
                 style={{

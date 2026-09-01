@@ -51,10 +51,10 @@ interface TeamGroup {
 
 const teamGroups: TeamGroup[] = [
   {
-    key: "mentoria",
-    label: "Mentoría & Asesoría",
-    title: "Mentoría y Asesoría",
-    subtitle: "Acompañamiento académico y científico del semillero.",
+    key: "junta",
+    label: "Junta Directiva",
+    title: "Junta Directiva del Semillero",
+    subtitle: "Mentoría, dirección y administración del semillero.",
     members: [
       {
         name: "PhD. Eliana Margarita Aguilar Larrarte",
@@ -68,33 +68,6 @@ const teamGroups: TeamGroup[] = [
         linkedin: "https://www.linkedin.com/in/eliana-aguilar-65b34b7/",
         scholar: "https://scholar.google.com/citations?hl=es&user=GfiQpbMAAAAJ",
       },
-      {
-        name: "Sarah Alejandra Cabeza Longo",
-        initials: "SC",
-        role: "Asesora del Semillero",
-        level: "Estudiante",
-      },
-      {
-        name: "Edwin Francisco Valdes Arias",
-        initials: "EV",
-        role: "Asesor del Semillero",
-        level: "Ingeniero Físico",
-        area: "Remote Sensing · Image Processing · Data Science",
-        bio: "Ingeniero Físico de la Universidad del Cauca con experiencia en las ciencias aeroespaciales y el procesamiento de imágenes, con la teledetección como punto de convergencia.",
-        publications: 2,
-        projects: 5,
-        email: "evaldes@unicauca.edu.co",
-        linkedin: "https://www.linkedin.com/in/edwin-francisco-valdes-arias-16334a227/",
-        scholar: "https://scholar.google.com.mx/citations?user=gzXOnMUAAAAJ&hl=es",
-      },
-    ],
-  },
-  {
-    key: "coordinacion",
-    label: "Comité Coordinador",
-    title: "Comité Coordinador",
-    subtitle: "Dirección, administración y organización interna del semillero.",
-    members: [
       {
         name: "Evelyn Karina Velasco Caicedo",
         initials: "EV",
@@ -123,6 +96,57 @@ const teamGroups: TeamGroup[] = [
         name: "Yoan Esneider Useche",
         initials: "YU",
         role: "Líder de las Líneas de Investigación",
+        level: "Estudiante",
+      },
+    ],
+  },
+  {
+    key: "asesoria",
+    label: "Asesoría",
+    title: "Asesoría",
+    subtitle: "Docentes y asesores que acompañan científica y académicamente al semillero.",
+    members: [
+      {
+        name: "PhD. Wilfrand Pérez Urbano",
+        initials: "WP",
+        role: "Docente",
+        level: "Doctor en Ingeniería — Ciencia y Tecnología de Materiales",
+      },
+      {
+        name: "PhD. Mario Milver Patiño",
+        initials: "MP",
+        role: "Docente",
+        level: "Doctor en Ciencias Ambientales",
+      },
+      {
+        name: "M. Sc. Manuel Alejandro",
+        initials: "MA",
+        role: "Docente",
+        level: "Magíster en Ciencias — Física de Materiales",
+      },
+      {
+        name: "Edwin Francisco Valdes Arias",
+        initials: "EV",
+        role: "Asesor del Semillero",
+        level: "Ingeniero Físico",
+        area: "Remote Sensing · Image Processing · Data Science",
+        bio: "Ingeniero Físico de la Universidad del Cauca con experiencia en las ciencias aeroespaciales y el procesamiento de imágenes, con la teledetección como punto de convergencia.",
+        publications: 2,
+        projects: 5,
+        email: "evaldes@unicauca.edu.co",
+        linkedin: "https://www.linkedin.com/in/edwin-francisco-valdes-arias-16334a227/",
+        scholar: "https://scholar.google.com.mx/citations?user=gzXOnMUAAAAJ&hl=es",
+      },
+      {
+        name: "Sarah Alejandra Cabeza Longo",
+        initials: "SC",
+        role: "Asesora del Semillero",
+        level: "Estudiante",
+      },
+      {
+        name: "Juan Alejandro Cardenas Urbano",
+        initials: "JC",
+        role: "Asesor del Semillero",
         level: "Estudiante",
       },
     ],
@@ -188,13 +212,6 @@ const teamGroups: TeamGroup[] = [
         role: "Co-Líder de la División de SIA KIDS",
         level: "Ingeniero Físico",
         area: "SIA KIDS",
-      },
-      {
-        name: "Juan Alejandro Cardenas Urbano",
-        initials: "JC",
-        role: "Líder de la División de Página Web",
-        level: "Estudiante",
-        area: "Página Web",
       },
     ],
   },
@@ -531,7 +548,7 @@ export function TeamPage() {
             <span style={{ color: "#F5C518" }}> EQUIPO</span>
           </h1>
           <p style={{ color: "#CCCCCC", fontSize: "1rem", lineHeight: 1.8, maxWidth: "620px", margin: "0 auto" }}>
-            Mentoría, comité coordinador y líderes de división: las {totalMembers} posiciones
+            Junta directiva, asesoría y líderes de división: las {totalMembers} posiciones
             que sostienen el trabajo del Semillero de Ingeniería Aeroespacial SIA.
           </p>
         </div>

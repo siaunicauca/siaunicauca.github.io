@@ -25,6 +25,15 @@ import conf5_EquipoKala            from "../../media/6CongresoIngenieriaFisicaPo
 import conf6_PosterCoheteAgua      from "../../media/5SimposioMunich/posterCoheteAgua.jpeg";
 import conf6_EntradaSSEA           from "../../media/5SimposioMunich/entradaSSEA.jpeg";
 import conf6_PresentacionRobotics  from "../../media/5SimposioMunich/presentacionRoboticsFun.jpeg";
+// Conf 7 — III Congreso Espacial Centroamericano CEC 2026, Guatemala
+import conf7_Cec1 from "../../media/cec2026/2.jpeg";
+import conf7_Cec2 from "../../media/cec2026/3.jpeg";
+import conf7_Cec3 from "../../media/cec2026/4.jpeg";
+// Conf 8 y 9 — IEEE CONESCAPAN XLIII y HydroChallenge Costa Rica, 2026
+import conf8_Conescapan1 from "../../media/CONESCAPAN2026/1.jpeg";
+import conf8_Conescapan2 from "../../media/CONESCAPAN2026/2.jpeg";
+import conf9_Hydro1      from "../../media/CONESCAPAN2026/3.jpeg";
+import conf9_Hydro2      from "../../media/CONESCAPAN2026/4.jpeg";
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -165,6 +174,49 @@ const conferences: Conference[] = [
       { src: conf6_EntradaSSEA,           alt: "Entrada al Symposium on Space Educational Activities — TU Munich" },
       { src: conf6_PosterCoheteAgua,      alt: "Póster cohete agua multietapa, Múnich 2026" },
       { src: conf6_PresentacionRobotics,  alt: "Presentación oral Robotics Fun: Learning STEM through Play" },
+    ],
+  },
+  {
+    id: 7,
+    name: "III Congreso Espacial Centroamericano — CEC 2026",
+    location: "Ciudad de Guatemala, Guatemala",
+    date: "Septiembre, 2026",
+    oral: [
+      "Diseño, desarrollo y validación del hidrocohete multietapa con módulo de sensado atmosférico KALA - ATLAS X",
+    ],
+    poster: [],
+    images: [
+      { src: conf7_Cec1, alt: "Equipo SIA en el CEC 2026" },
+      { src: conf7_Cec2, alt: "Presentación del hidrocohete KALA - ATLAS X en el CEC 2026" },
+      { src: conf7_Cec3, alt: "Encuentro con Daichi Hirano (JAXA) en el CEC 2026" },
+    ],
+  },
+  {
+    id: 8,
+    name: "IEEE CONESCAPAN XLIII",
+    location: "San José, Costa Rica",
+    date: "Septiembre, 2026",
+    oral: [
+      "Automated Detection and Classification of Coffee Plants Using Computer Vision and Random Forest on UAV Imagery",
+    ],
+    poster: [],
+    images: [
+      { src: conf8_Conescapan1, alt: "Presentación en IEEE CONESCAPAN XLIII" },
+      { src: conf8_Conescapan2, alt: "Área de estudio y datos, Tecnicafé — IEEE CONESCAPAN XLIII" },
+    ],
+  },
+  {
+    id: 9,
+    name: "HydroChallenge Costa Rica 2026",
+    location: "San José, Costa Rica",
+    date: "Septiembre, 2026",
+    oral: [
+      "Semillero de Ingeniería Aeroespacial: De la formación a la innovación",
+    ],
+    poster: [],
+    images: [
+      { src: conf9_Hydro2, alt: "Presentación del Semillero SIA en la Universidad de Costa Rica" },
+      { src: conf9_Hydro1, alt: "Presentación División de Cohetería, HydroChallenge Costa Rica" },
     ],
   },
 ];

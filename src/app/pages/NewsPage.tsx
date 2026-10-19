@@ -8,6 +8,9 @@ import coverImg from "../../media/Bienvenida/welcom1.jpeg";
 // ── Portadas de noticias ──────────────────────────────────────────────────────
 import conf5_EquipoKala from "../../media/6CongresoIngenieriaFisicaPopayan/equipoKalaPosteres.jpeg";
 import conf6_EntradaSSEA from "../../media/5SimposioMunich/entradaSSEA.jpeg";
+import pilotosRcFlyer from "../../media/PilotosRC/flyer.png";
+import conf7_Cec from "../../media/cec2026/2.jpeg";
+import conf7_Hydro from "../../media/CONESCAPAN2026/4.jpeg";
 
 function FadeIn({ children, delay = 0 }: { children: React.ReactNode; delay?: number }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -47,6 +50,7 @@ interface NewsItem {
   featured: boolean;
   readTime: string;
   slug: string;
+  imagePosition?: string;
 }
 
 const news: NewsItem[] = [
@@ -88,6 +92,46 @@ const news: NewsItem[] = [
     featured: true,
     readTime: "4 min",
     slug: "v-simposio-actividades-espaciales-munich-2026",
+  },
+  {
+    id: 4,
+    image: conf7_Cec,
+    category: "Conferencia",
+    title: "Semillero SIA participa en el III Congreso Espacial Centroamericano CEC 2026 en Guatemala",
+    excerpt:
+      "Del 16 al 18 de septiembre de 2026, estudiantes del SIA presentaron en el CEC 2026, en la Universidad del Valle de Guatemala, la ponencia oral sobre el hidrocohete multietapa KALA - ATLAS X, y compartieron con representantes de IIAS y JAXA.",
+    date: "Septiembre, 2026",
+    author: "Semillero SIA",
+    featured: true,
+    readTime: "4 min",
+    slug: "cec-2026-guatemala",
+  },
+  {
+    id: 6,
+    image: pilotosRcFlyer,
+    imagePosition: "top",
+    category: "Evento",
+    title: "Abren convocatorias para la División de Pilotos RC del Semillero SIA",
+    excerpt:
+      "El SIA y AESS Unicauca invitan a estudiantes a formarse en el diseño, construcción y pilotaje de aeronaves radiocontroladas. No se requiere experiencia previa ni equipos propios.",
+    date: "Octubre, 2026",
+    author: "Semillero SIA",
+    featured: true,
+    readTime: "2 min",
+    slug: "convocatoria-division-pilotos-rc",
+  },
+  {
+    id: 5,
+    image: conf7_Hydro,
+    category: "Conferencia",
+    title: "Semillero SIA presente en IEEE CONESCAPAN e HydroChallenge Costa Rica 2026",
+    excerpt:
+      "Jhoan Sebastián Parada Beltrán, integrante del SIA, participó como ponente en IEEE CONESCAPAN XLIII con un trabajo de detección de plantas de café con visión por computador y drones, y presentó el semillero en HydroChallenge Costa Rica 2026, en la Universidad de Costa Rica.",
+    date: "Septiembre, 2026",
+    author: "Semillero SIA",
+    featured: true,
+    readTime: "3 min",
+    slug: "conescapan-hydrochallenge-costa-rica-2026",
   },
 ];
 
@@ -235,6 +279,7 @@ export function NewsPage() {
                             width: "100%",
                             height: "100%",
                             objectFit: "cover",
+                            objectPosition: item.imagePosition ?? "center",
                             filter: "brightness(0.65)",
                             transform: isHovered ? "scale(1.03)" : "scale(1)",
                             transition: "transform 0.4s",
@@ -400,6 +445,7 @@ export function NewsPage() {
                             width: "100%",
                             height: "100%",
                             objectFit: "cover",
+                            objectPosition: item.imagePosition ?? "center",
                             filter: "brightness(0.6)",
                             transform: isHovered ? "scale(1.04)" : "scale(1)",
                             transition: "transform 0.4s",

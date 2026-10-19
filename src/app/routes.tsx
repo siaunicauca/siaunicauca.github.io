@@ -12,6 +12,9 @@ import { HidroChallengePage } from "./pages/HidroChallengePage";
 import { NoticiaPresentacionSIA } from "./pages/NoticiaPresentacionSIA";
 import { NoticiaCongresoIngFisica } from "./pages/NoticiaCongresoIngFisica";
 import { NoticiaSimposioMunich } from "./pages/NoticiaSimposioMunich";
+import { NoticiaCostaRica2026 } from "./pages/NoticiaCostaRica2026";
+import { NoticiaCEC2026 } from "./pages/NoticiaCEC2026";
+import { NoticiaPilotosRC } from "./pages/NoticiaPilotosRC";
 
 export const router = createBrowserRouter(
   [
@@ -29,6 +32,9 @@ export const router = createBrowserRouter(
         { path: "noticias/presentacion-oficial-sia-2025", Component: NoticiaPresentacionSIA },
         { path: "noticias/viii-congreso-ingenieria-fisica-2025", Component: NoticiaCongresoIngFisica },
         { path: "noticias/v-simposio-actividades-espaciales-munich-2026", Component: NoticiaSimposioMunich },
+        { path: "noticias/conescapan-hydrochallenge-costa-rica-2026", Component: NoticiaCostaRica2026 },
+        { path: "noticias/cec-2026-guatemala", Component: NoticiaCEC2026 },
+        { path: "noticias/convocatoria-division-pilotos-rc", Component: NoticiaPilotosRC },
         { path: "contacto", Component: ContactPage },
         { path: "hidrochallenge", Component: HidroChallengePage },
       ],
